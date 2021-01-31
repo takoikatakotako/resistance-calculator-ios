@@ -1,0 +1,63 @@
+import SwiftUI
+
+struct ResistanceCalculatorView: View {
+    @StateObject var viewModel = ResistanceCalculatorViewModel()
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                VStack {
+                    Text("234.0 MΩ")
+                        .font(Font.system(size: 48).bold())
+                    Text("± 0.1％")
+                        .font(Font.system(size: 48).bold())
+                }.padding(.top, 16)
+                
+                if viewModel.showing4BandResistance {
+                    Image(R.image.resistance4Color.name)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Image(R.image.resistance5Color.name)
+                        .resizable()
+                        .scaledToFit()
+                }
+                
+                ResistancePickerView(
+                    isFourbandResistance: viewModel.showing4BandResistance,
+                    fourBandResistance: $viewModel.fourBandResistance,
+                    fiveBandResistance: $viewModel.fiveBandResistance
+                )
+                    .frame(height: 320)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            .background(Color.white)
+            .navigationBarItems(
+                leading:
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(R.image.navigationPercent.name)
+                            .renderingMode(.template)
+                            .foregroundColor(Color.black)
+                    }),
+                trailing:
+                    Button(action: {
+                        viewModel.showing4BandResistance.toggle()
+                    }, label: {
+                        Image(viewModel.showing4BandResistance ? R.image.navigationResistance4Color.name : R.image.navigationResistance5Color.name)
+                            .renderingMode(.template)
+                            .foregroundColor(Color.black)
+                    })
+            )
+            .background(Color.white)
+            .navigationBarTitle("抵抗計算機", displayMode: .inline)
+        }
+    }
+}
+
+struct ResistanceCalculatorView_Previews: PreviewProvider {
+    static var previews: some View {
+        ResistanceCalculatorView()
+    }
+}
