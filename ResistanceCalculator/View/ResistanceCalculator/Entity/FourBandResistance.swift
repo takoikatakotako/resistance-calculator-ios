@@ -6,6 +6,19 @@ class FourBandResistance {
     var thirdBandIndex: Int = 4
     var fourBandIndex: Int = 5
     
+    var resistance: Resistance? {
+        guard let firstNumber = firstBandColorCode.number,
+              let secondNumber = secondBandColorCode.number,
+              let multiplier = thirdBandColorCode.multiplier,
+              let error = fourBandColorCode.error else {
+            return nil
+        }
+              
+        let resistance = (firstNumber * 10 + secondNumber) * multiplier
+        let errorResistance = resistance * (error / 100)
+        return Resistance(resistance: resistance, error: error, errorResistance: errorResistance)
+    }
+    
     let firstBands = [
         ResistanceColor.black,
         ResistanceColor.brown,
@@ -31,7 +44,6 @@ class FourBandResistance {
         ResistanceColor.white,
     ]
     let thirdBands = [
-        ResistanceColor.black,
         ResistanceColor.brown,
         ResistanceColor.red,
         ResistanceColor.orange,
@@ -45,7 +57,6 @@ class FourBandResistance {
         ResistanceColor.silver,
     ]
     let fourthBands = [
-        ResistanceColor.black,
         ResistanceColor.brown,
         ResistanceColor.red,
         ResistanceColor.orange,
@@ -54,7 +65,6 @@ class FourBandResistance {
         ResistanceColor.blue,
         ResistanceColor.purple,
         ResistanceColor.gray,
-        ResistanceColor.white,
         ResistanceColor.gold,
         ResistanceColor.silver,
     ]

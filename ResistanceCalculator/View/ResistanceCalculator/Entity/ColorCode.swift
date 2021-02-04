@@ -1,44 +1,44 @@
-//import UIKit
-//
-//enum ResistColor: String {
-//    case black
-//    case brown
-//    case red
-//    case orange
-//    case yellow
-//    case green
-//    case blue
-//    case purple
-//    case gray
-//    case white
-//    case gold
-//    case silver
-//    case error
-//}
-//
-////struct ColorCode2: RawRepresentable {
-////    typealias RawValue = String
-////    var rawValue: String
+////import UIKit
 ////
-////    init?(rawValue: ResistColor) {
-////        self.rawValue = rawValue.rawValue
-////    }
-////    
-////    
-////    
-////    //let color: UIColor
+////enum ResistColor: String {
+////    case black
+////    case brown
+////    case red
+////    case orange
+////    case yellow
+////    case green
+////    case blue
+////    case purple
+////    case gray
+////    case white
+////    case gold
+////    case silver
+////    case error
 ////}
-//
-//
-////enum ResistanceColor: ColorCode2 {
-////    case black = ColorCode2(color: UIColor.blue)
-////}
-//
-//
-//
-//
-//
-//
+////
+//////struct ColorCode2: RawRepresentable {
+//////    typealias RawValue = String
+//////    var rawValue: String
+//////
+//////    init?(rawValue: ResistColor) {
+//////        self.rawValue = rawValue.rawValue
+//////    }
+//////    
+//////    
+//////    
+//////    //let color: UIColor
+//////}
+////
+////
+//////enum ResistanceColor: ColorCode2 {
+//////    case black = ColorCode2(color: UIColor.blue)
+//////}
+////
+////
+////
+////
+////
+////
 //class ColorCode {
 //    var name: String
 //    var number: Int?

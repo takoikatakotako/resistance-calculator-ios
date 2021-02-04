@@ -7,12 +7,13 @@ struct ResistanceCalculatorView: View {
         NavigationView {
             VStack {
                 Spacer()
-                VStack {
-                    Text("234.0 MΩ")
-                        .font(Font.system(size: 48).bold())
-                    Text("± 0.1％")
-                        .font(Font.system(size: 48).bold())
-                }.padding(.top, 16)
+                
+                ResistanceText(
+                    isFourbandResistance: viewModel.showing4BandResistance,
+                    isPercentError: viewModel.showingPercentError,
+                    fourBandResistance: $viewModel.fourBandResistance,
+                    fiveBandResistance: $viewModel.fiveBandResistance)
+                    .padding(.top, 16)
                 
                 RegistanceImage(
                     isFourbandResistance: viewModel.showing4BandResistance,

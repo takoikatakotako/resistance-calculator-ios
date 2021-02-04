@@ -13,7 +13,7 @@ schemes:
   Local:
     build:
       targets:
-        CharalarmLocal: all
+        Local: all
     run:
       config: Debug
     test:
@@ -37,7 +37,7 @@ schemes:
   #     config: Debug
 
 targets:
-  CharalarmLocal:
+  Local:
     type: application
     platform: iOS
     deploymentTarget: "14.0"
@@ -176,7 +176,7 @@ targets:
       base:
         INFOPLIST_FILE: ResistanceCalculatorTests/Info.plist
     dependencies:
-      - target: CharalarmLocal
+      - target: Local
   ResistanceCalculatorUITests:
     type: bundle.ui-testing
     platform: iOS
@@ -186,4 +186,26 @@ targets:
       base:
         INFOPLIST_FILE: ResistanceCalculatorUITests/Info.plist
     dependencies:
-      - target: CharalarmLocal
+      - target: Local
+
+
+  # LiveNoteTests:
+  #   type: bundle.unit-test
+  #   platform: iOS
+  #   sources:
+  #     - LiveNoteTests
+  #   settings:
+  #     base:
+  #       INFOPLIST_FILE: LiveNoteTests/Info.plist
+  #   dependencies:
+  #     - target: LiveNote
+  # LiveNoteUITests:
+  #   type: bundle.ui-testing
+  #   platform: iOS
+  #   sources:
+  #     - LiveNoteUITests
+  #   settings:
+  #     base:
+  #       INFOPLIST_FILE: LiveNoteUITests/Info.plist
+  #   dependencies:
+  #     - target: LiveNote

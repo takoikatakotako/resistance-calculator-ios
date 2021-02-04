@@ -11,7 +11,6 @@ struct RegistanceImage: View {
             FourBandResistanceImage(fourBandResistance: $fourBandResistance)
         } else {
             FiveBandResistanceImage(fiveBandResistance: $fiveBandResistance)
-
         }
     }
 }
