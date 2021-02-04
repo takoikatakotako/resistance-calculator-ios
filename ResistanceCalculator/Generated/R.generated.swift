@@ -116,8 +116,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 8 images.
+  /// This `R.image` struct is generated, and contains static references to 10 images.
   struct image {
+    /// Image `five-band-resistance`.
+    static let fiveBandResistance = Rswift.ImageResource(bundle: R.hostingBundle, name: "five-band-resistance")
+    /// Image `four-band-resistance`.
+    static let fourBandResistance = Rswift.ImageResource(bundle: R.hostingBundle, name: "four-band-resistance")
     /// Image `navigation-ohm`.
     static let navigationOhm = Rswift.ImageResource(bundle: R.hostingBundle, name: "navigation-ohm")
     /// Image `navigation-percent`.
@@ -134,6 +138,20 @@ struct R: Rswift.Validatable {
     static let tabbarOther = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-other")
     /// Image `tabbar-resistance`.
     static let tabbarResistance = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-resistance")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "five-band-resistance", bundle: ..., traitCollection: ...)`
+    static func fiveBandResistance(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fiveBandResistance, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "four-band-resistance", bundle: ..., traitCollection: ...)`
+    static func fourBandResistance(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fourBandResistance, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "navigation-ohm", bundle: ..., traitCollection: ...)`

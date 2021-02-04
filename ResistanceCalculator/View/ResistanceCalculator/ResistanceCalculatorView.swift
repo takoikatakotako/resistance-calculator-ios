@@ -6,6 +6,7 @@ struct ResistanceCalculatorView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
                 VStack {
                     Text("234.0 MΩ")
                         .font(Font.system(size: 48).bold())
@@ -13,22 +14,20 @@ struct ResistanceCalculatorView: View {
                         .font(Font.system(size: 48).bold())
                 }.padding(.top, 16)
                 
-                if viewModel.showing4BandResistance {
-                    Image(R.image.resistance4Color.name)
-                        .resizable()
-                        .scaledToFit()
-                } else {
-                    Image(R.image.resistance5Color.name)
-                        .resizable()
-                        .scaledToFit()
-                }
+                RegistanceImage(
+                    isFourbandResistance: viewModel.showing4BandResistance,
+                    fourBandResistance: $viewModel.fourBandResistance,
+                    fiveBandResistance: $viewModel.fiveBandResistance
+                )
                 
                 ResistancePickerView(
                     isFourbandResistance: viewModel.showing4BandResistance,
                     fourBandResistance: $viewModel.fourBandResistance,
                     fiveBandResistance: $viewModel.fiveBandResistance
                 )
-                    .frame(height: 320)
+                    .frame(height: 160)
+                .background(Color.red)
+                Spacer()
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             .background(Color.white)
