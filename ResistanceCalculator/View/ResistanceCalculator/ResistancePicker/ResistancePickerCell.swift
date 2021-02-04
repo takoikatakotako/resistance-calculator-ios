@@ -1,17 +1,17 @@
 import SwiftUI
 
 struct ResistancePickerCell: View {
-    let colorCode: ColorCode
+    let resistanceColor: ResistanceColor
     var body: some View {
-        Text(colorCode.name)
-            .foregroundColor(Color(colorCode.textColor))
+        Text(resistanceColor.text)
+            .foregroundColor(resistanceColor.textColor)
             .frame(minWidth: 0, maxWidth: .infinity)
-            .background(Color(colorCode.color))
+            .background(resistanceColor.color)
     }
 }
 
 struct ResistancePickerCell_Previews: PreviewProvider {
     static var previews: some View {
-        ResistancePickerCell(colorCode: ColorCode(color: .yellow))
+        ResistancePickerCell(resistanceColor: ResistanceColor.brown)
     }
 }

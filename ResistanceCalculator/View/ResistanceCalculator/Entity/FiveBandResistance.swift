@@ -7,30 +7,90 @@ class FiveBandResistance {
     var fourthBandIndex: Int = 5
     var fifthBandIndex: Int = 6
     
-    let firstBands = [ColorCode(color: .black), ColorCode(color: .brown), ColorCode(color: .red), ColorCode(color: .orange), ColorCode(color: .yellow), ColorCode(color: .green), ColorCode(color: .blue), ColorCode(color: .purple), ColorCode(color: .gray), ColorCode(color: .white),]
-    let secondBands = [ColorCode(color: .black), ColorCode(color: .brown), ColorCode(color: .red), ColorCode(color: .orange), ColorCode(color: .yellow), ColorCode(color: .green), ColorCode(color: .blue), ColorCode(color: .purple), ColorCode(color: .gray), ColorCode(color: .white),]
-    let thirdBands = [ColorCode(color: .black), ColorCode(color: .brown), ColorCode(color: .red), ColorCode(color: .orange), ColorCode(color: .yellow), ColorCode(color: .green), ColorCode(color: .blue), ColorCode(color: .purple), ColorCode(color: .gray), ColorCode(color: .white),]
-    let fourthBands = [ColorCode(color: .black), ColorCode(color: .brown), ColorCode(color: .red), ColorCode(color: .orange), ColorCode(color: .yellow), ColorCode(color: .green), ColorCode(color: .blue), ColorCode(color: .purple), ColorCode(color: .gray), ColorCode(color: .white),]
+    let firstBands = [
+        ResistanceColor.black,
+        ResistanceColor.brown,
+        ResistanceColor.red,
+        ResistanceColor.orange,
+        ResistanceColor.yellow,
+        ResistanceColor.green,
+        ResistanceColor.blue,
+        ResistanceColor.purple,
+        ResistanceColor.gray,
+        ResistanceColor.white,
+    ]
     
-    let fifthBands = [ColorCode(color: .black), ColorCode(color: .brown), ColorCode(color: .red), ColorCode(color: .orange), ColorCode(color: .yellow), ColorCode(color: .green), ColorCode(color: .blue), ColorCode(color: .purple), ColorCode(color: .gray), ColorCode(color: .white),]
+    let secondBands = [
+        ResistanceColor.black,
+        ResistanceColor.brown,
+        ResistanceColor.red,
+        ResistanceColor.orange,
+        ResistanceColor.yellow,
+        ResistanceColor.green,
+        ResistanceColor.blue,
+        ResistanceColor.purple,
+        ResistanceColor.gray,
+        ResistanceColor.white,
+    ]
+    let thirdBands = [
+        ResistanceColor.black,
+        ResistanceColor.brown,
+        ResistanceColor.red,
+        ResistanceColor.orange,
+        ResistanceColor.yellow,
+        ResistanceColor.green,
+        ResistanceColor.blue,
+        ResistanceColor.purple,
+        ResistanceColor.gray,
+        ResistanceColor.white,
+    ]
+    let fourthBands = [
+        ResistanceColor.black,
+        ResistanceColor.brown,
+        ResistanceColor.red,
+        ResistanceColor.orange,
+        ResistanceColor.yellow,
+        ResistanceColor.green,
+        ResistanceColor.blue,
+        ResistanceColor.purple,
+        ResistanceColor.gray,
+        ResistanceColor.white,
+        ResistanceColor.gold,
+        ResistanceColor.silver,
+    ]
     
-    var firstBandColorCode: ColorCode {
+    let fifthBands = [
+        ResistanceColor.black,
+        ResistanceColor.brown,
+        ResistanceColor.red,
+        ResistanceColor.orange,
+        ResistanceColor.yellow,
+        ResistanceColor.green,
+        ResistanceColor.blue,
+        ResistanceColor.purple,
+        ResistanceColor.gray,
+        ResistanceColor.white,
+        ResistanceColor.gold,
+        ResistanceColor.silver,
+    ]
+    
+    var firstBandColorCode: ResistanceColor {
         return firstBands[firstBandIndex]
     }
     
-    var secondBandColorCode: ColorCode {
+    var secondBandColorCode: ResistanceColor {
         return secondBands[secondBandIndex]
     }
     
-    var thirdBandColorCode: ColorCode {
+    var thirdBandColorCode: ResistanceColor {
         return thirdBands[thirdBandIndex]
     }
     
-    var fourBandColorCode: ColorCode {
+    var fourBandColorCode: ResistanceColor {
         return fourthBands[fourthBandIndex]
     }
     
-    var fifthBandColorCode: ColorCode {
+    var fifthBandColorCode: ResistanceColor {
         return fifthBands[fifthBandIndex]
     }
 }

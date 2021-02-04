@@ -25,8 +25,8 @@ struct ResistanceCalculatorView: View {
                     fourBandResistance: $viewModel.fourBandResistance,
                     fiveBandResistance: $viewModel.fiveBandResistance
                 )
-                    .frame(height: 160)
-                .background(Color.red)
+                .frame(height: 160)
+                
                 Spacer()
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)

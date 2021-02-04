@@ -6,19 +6,19 @@ struct FourBandResistanceImage: View {
     var body: some View {
         ZStack {
             HStack(alignment: .center, spacing: 0) {
-                Color(fourBandResistance.firstBandColorCode.color)
+                fourBandResistance.firstBandColorCode.color
                     .frame(width: 40)
-                Color(fourBandResistance.secondBandColorCode.color)
+                fourBandResistance.secondBandColorCode.color
                     .frame(width: 40)
-                Color(fourBandResistance.thirdBandColorCode.color)
+                fourBandResistance.thirdBandColorCode.color
                     .frame(width: 40)
-                Color(fourBandResistance.fourBandColorCode.color)
+                fourBandResistance.fourBandColorCode.color
                     .frame(width: 40)
             }
             .frame(height: 160)
             Image(R.image.fourBandResistance.name)
                 .resizable()
-                .frame(width: 320, height: 160, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 320, height: 160, alignment: .center)
                 .scaledToFit()
         }
     }

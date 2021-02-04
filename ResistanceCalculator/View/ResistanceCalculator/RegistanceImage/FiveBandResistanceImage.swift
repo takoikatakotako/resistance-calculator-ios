@@ -7,15 +7,15 @@ struct FiveBandResistanceImage: View {
     var body: some View {
         ZStack {
             HStack(alignment: .center, spacing: 0) {
-                Color(fiveBandResistance.firstBandColorCode.color)
+                fiveBandResistance.firstBandColorCode.color
                     .frame(width: 32)
-                Color(fiveBandResistance.secondBandColorCode.color)
+                fiveBandResistance.secondBandColorCode.color
                     .frame(width: 32)
-                Color(fiveBandResistance.thirdBandColorCode.color)
+                fiveBandResistance.thirdBandColorCode.color
                     .frame(width: 32)
-                Color(fiveBandResistance.fourBandColorCode.color)
+                fiveBandResistance.fourBandColorCode.color
                     .frame(width: 32)
-                Color(fiveBandResistance.fifthBandColorCode.color)
+                fiveBandResistance.fifthBandColorCode.color
                     .frame(width: 32)
             }
             .frame(height: 160)

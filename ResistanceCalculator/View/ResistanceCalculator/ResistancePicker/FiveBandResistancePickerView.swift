@@ -8,7 +8,7 @@ struct FiveBandResistancePickerView: View {
             HStack(spacing: 0) {
                 Picker("", selection: $fiveBandResistance.firstBandIndex) {
                     ForEach(0 ..< fiveBandResistance.firstBands.count) {
-                        ResistancePickerCell(colorCode: fiveBandResistance.firstBands[$0])
+                        ResistancePickerCell(resistanceColor: fiveBandResistance.firstBands[$0])
                     }
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
@@ -17,7 +17,7 @@ struct FiveBandResistancePickerView: View {
                 
                 Picker("", selection: $fiveBandResistance.secondBandIndex) {
                     ForEach(0 ..< fiveBandResistance.secondBands.count) {
-                        ResistancePickerCell(colorCode: fiveBandResistance.secondBands[$0])
+                        ResistancePickerCell(resistanceColor: fiveBandResistance.secondBands[$0])
                     }
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
@@ -26,7 +26,7 @@ struct FiveBandResistancePickerView: View {
                 
                 Picker("", selection: $fiveBandResistance.thirdBandIndex) {
                     ForEach(0 ..< fiveBandResistance.thirdBands.count) {
-                        ResistancePickerCell(colorCode: fiveBandResistance.thirdBands[$0])
+                        ResistancePickerCell(resistanceColor: fiveBandResistance.thirdBands[$0])
                     }
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
@@ -35,7 +35,7 @@ struct FiveBandResistancePickerView: View {
                 
                 Picker("", selection: $fiveBandResistance.fourthBandIndex) {
                     ForEach(0 ..< fiveBandResistance.fourthBands.count) {
-                        ResistancePickerCell(colorCode: fiveBandResistance.fourthBands[$0])
+                        ResistancePickerCell(resistanceColor: fiveBandResistance.fourthBands[$0])
                     }
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
@@ -44,7 +44,7 @@ struct FiveBandResistancePickerView: View {
                 
                 Picker("", selection: $fiveBandResistance.fifthBandIndex) {
                     ForEach(0 ..< fiveBandResistance.fifthBands.count) {
-                        ResistancePickerCell(colorCode: fiveBandResistance.fifthBands[$0])
+                        ResistancePickerCell(resistanceColor: fiveBandResistance.fifthBands[$0])
                     }
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
