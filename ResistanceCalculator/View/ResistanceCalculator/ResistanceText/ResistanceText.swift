@@ -3,36 +3,29 @@ import SwiftUI
 struct ResistanceText: View {
     let isFourbandResistance: Bool
     let isPercentError: Bool
-
+    
     @Binding var fourBandResistance: FourBandResistance
     @Binding var fiveBandResistance: FiveBandResistance
     
-    @ViewBuilder
-    var body: some View {
+    var resistance: Resistance? {
         if isFourbandResistance {
-            VStack {
-                Text(fourBandResistance.resistance?.resistanceString ?? "Error")
-                    .font(Font.system(size: 48).bold())
-                
-                if isPercentError {
-                    Text(fourBandResistance.resistance?.error.description ?? "Error")
-                        .font(Font.system(size: 48).bold())
-                } else {
-                    Text(fourBandResistance.resistance?.errorResistanceString ?? "Error")
-                        .font(Font.system(size: 48).bold())
-                }
-            }
+            return fourBandResistance.resistance
         } else {
-            VStack {
-                Text(fiveBandResistance.resistance?.resistanceString ?? "Error")
+            return fiveBandResistance.resistance
+        }
+    }
+    
+    var body: some View {
+        VStack {
+            Text(resistance?.resistanceString ?? "Error")
+                .font(Font.system(size: 48).bold())
+            
+            if isPercentError {
+                Text("± \(resistance?.errorString.description ?? "Error")")
                     .font(Font.system(size: 48).bold())
-                if isPercentError {
-                    Text(fiveBandResistance.resistance?.error.description ?? "Error")
-                        .font(Font.system(size: 48).bold())
-                } else {
-                    Text(fiveBandResistance.resistance?.errorResistanceString ?? "Error")
-                        .font(Font.system(size: 48).bold())
-                }
+            } else {
+                Text("± \(resistance?.errorResistanceString ?? "Error")")
+                    .font(Font.system(size: 48).bold())
             }
         }
     }
@@ -44,17 +37,16 @@ struct ResistanceText_Previews: PreviewProvider {
         @State var isPercentError: Bool = true
         @State var fourBandResistance = FourBandResistance()
         @State var fiveBandResistance = FiveBandResistance()
-
-         var body: some View {
+        
+        var body: some View {
             ResistanceText(
                 isFourbandResistance: isFourbandResistance,
                 isPercentError: isPercentError ,
                 fourBandResistance: $fourBandResistance,
                 fiveBandResistance: $fiveBandResistance
             )
-         }
-     }
-    
+        }
+    }
     
     static var previews: some View {
         PreviewWrapper()

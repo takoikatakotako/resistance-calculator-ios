@@ -7,5 +7,4 @@ class ResistanceCalculatorViewModel: ObservableObject {
     
     @Published var fourBandResistance = FourBandResistance()
     @Published var fiveBandResistance = FiveBandResistance()
-
 }

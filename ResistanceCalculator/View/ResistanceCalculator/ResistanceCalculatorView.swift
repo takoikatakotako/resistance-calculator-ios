@@ -35,9 +35,10 @@ struct ResistanceCalculatorView: View {
             .navigationBarItems(
                 leading:
                     Button(action: {
-                        
+                        viewModel.showingPercentError.toggle()
                     }, label: {
-                        Image(R.image.navigationPercent.name)
+                        Image(viewModel.showingPercentError ?
+                                R.image.navigationPercent.name : R.image.navigationOhm.name)
                             .renderingMode(.template)
                             .foregroundColor(Color.black)
                     }),
@@ -45,7 +46,8 @@ struct ResistanceCalculatorView: View {
                     Button(action: {
                         viewModel.showing4BandResistance.toggle()
                     }, label: {
-                        Image(viewModel.showing4BandResistance ? R.image.navigationResistance4Color.name : R.image.navigationResistance5Color.name)
+                        Image(viewModel.showing4BandResistance ?
+                                R.image.navigationResistance4Color.name : R.image.navigationResistance5Color.name)
                             .renderingMode(.template)
                             .foregroundColor(Color.black)
                     })

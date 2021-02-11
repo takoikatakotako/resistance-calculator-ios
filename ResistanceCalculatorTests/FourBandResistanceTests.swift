@@ -151,11 +151,23 @@ class FourBandResistanceTests: XCTestCase {
         XCTAssertEqual(fourBandResistance.fourthBands.count, 8)
     }
     
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    // 黒黒黒茶
+    func testBlackBlackBlackBrown() throws {
+        let fourBandResistance = FourBandResistance()
+        fourBandResistance.firstBandIndex = 0
+        fourBandResistance.secondBandIndex = 0
+        fourBandResistance.thirdBandIndex = 0
+        fourBandResistance.fourthBandIndex = 0
+        XCTAssertEqual(fourBandResistance.firstBandColorCode, ResistanceColor.black)
+        XCTAssertEqual(fourBandResistance.secondBandColorCode, ResistanceColor.black)
+        XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.black)
+        XCTAssertEqual(fourBandResistance.fourthBandColorCode, ResistanceColor.brown)
+
+        let resistance = fourBandResistance.resistance!
+        XCTAssertEqual(resistance.resistance, 0)
+        XCTAssertEqual(resistance.resistanceString, "0.0 Ω")
+        XCTAssertEqual(resistance.error, 1)
+        XCTAssertEqual(resistance.errorResistance, 0)
+        XCTAssertEqual(resistance.errorResistanceString, "0.0 Ω")
     }
-    
 }
