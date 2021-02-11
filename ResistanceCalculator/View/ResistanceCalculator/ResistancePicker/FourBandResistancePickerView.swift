@@ -33,7 +33,7 @@ struct FourBandResistancePickerView: View {
                 .frame(width: geometry.size.width / 4, height: 160)
                 .clipped()
                 
-                Picker("", selection: $fourBandResistance.fourBandIndex) {
+                Picker("", selection: $fourBandResistance.fourthBandIndex) {
                     ForEach(0 ..< fourBandResistance.fourthBands.count) {
                         ResistancePickerCell(resistanceColor: fourBandResistance.fourthBands[$0])
                     }

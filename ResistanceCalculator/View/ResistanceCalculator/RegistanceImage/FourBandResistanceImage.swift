@@ -12,7 +12,7 @@ struct FourBandResistanceImage: View {
                     .frame(width: 40)
                 fourBandResistance.thirdBandColorCode.color
                     .frame(width: 40)
-                fourBandResistance.fourBandColorCode.color
+                fourBandResistance.fourthBandColorCode.color
                     .frame(width: 40)
             }
             .frame(height: 160)

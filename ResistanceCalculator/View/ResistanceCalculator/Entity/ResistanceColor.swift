@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ResistanceColor {
+struct ResistanceColor: Equatable {
     let text: String
     let textColor: Color
     let color: Color
@@ -13,7 +13,7 @@ struct ResistanceColor {
         textColor: Color(UIColor.white),
         color: Color(UIColor.black),
         number: 0,
-        multiplier: nil,
+        multiplier: 1e0,
         error: nil)
     
     static let brown = ResistanceColor(
@@ -21,31 +21,31 @@ struct ResistanceColor {
         textColor: Color(UIColor.white),
         color: Color(UIColor.brown),
         number: 1,
-        multiplier: nil,
-        error: nil)
+        multiplier: 1e1,
+        error: 1)
     
     static let red = ResistanceColor(
         text: "赤",
         textColor: Color(UIColor.white),
         color: Color(UIColor.red),
         number: 2,
-        multiplier: nil,
-        error: nil)
+        multiplier: 1e2,
+        error: 2)
     
     static let orange = ResistanceColor(
         text: "橙",
         textColor: Color(UIColor.white),
         color: Color(UIColor.orange),
         number: 3,
-        multiplier: nil,
-        error: nil)
+        multiplier: 1e3,
+        error: 0.05)
     
     static let yellow = ResistanceColor(
         text: "黄",
         textColor: Color(UIColor.black),
         color: Color(UIColor.yellow),
         number: 4,
-        multiplier: nil,
+        multiplier: 1e4,
         error: nil)
     
     static let green = ResistanceColor(
@@ -53,24 +53,24 @@ struct ResistanceColor {
         textColor: Color(UIColor.white),
         color: Color(UIColor.green),
         number: 5,
-        multiplier: nil,
-        error: nil)
+        multiplier: 1e5,
+        error: 0.5)
     
     static let blue = ResistanceColor(
         text: "青",
         textColor: Color(UIColor.white),
         color: Color(UIColor.blue),
         number: 6,
-        multiplier: nil,
-        error: nil)
+        multiplier: 1e6,
+        error: 0.25)
     
     static let purple = ResistanceColor(
         text: "紫",
         textColor: Color(UIColor.white),
         color: Color(UIColor.purple),
         number: 7,
-        multiplier: nil,
-        error: nil)
+        multiplier: 1e7,
+        error: 0.1)
     
     static let gray = ResistanceColor(
         text: "灰",
@@ -85,7 +85,7 @@ struct ResistanceColor {
         textColor: Color(UIColor.white),
         color: Color(UIColor.black),
         number: 9,
-        multiplier: nil,
+        multiplier: 0.001,
         error: nil)
     
     static let gold = ResistanceColor(
@@ -93,14 +93,14 @@ struct ResistanceColor {
         textColor: Color(UIColor.black),
         color: Color(UIColor.yellow),
         number: nil,
-        multiplier: nil,
-        error: nil)
+        multiplier: 0.1,
+        error: 5)
     
     static let silver = ResistanceColor(
         text: "銀",
         textColor: Color(UIColor.black),
         color: Color(UIColor.lightGray),
         number: nil,
-        multiplier: nil,
-        error: nil)
+        multiplier: 0.01,
+        error: 10)
 }
