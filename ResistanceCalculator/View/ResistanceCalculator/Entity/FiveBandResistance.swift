@@ -66,23 +66,18 @@ class FiveBandResistance {
         ResistanceColor.green,
         ResistanceColor.blue,
         ResistanceColor.purple,
-        ResistanceColor.gray,
         ResistanceColor.white,
         ResistanceColor.gold,
         ResistanceColor.silver,
     ]
     
     let fifthBands = [
-        ResistanceColor.black,
         ResistanceColor.brown,
         ResistanceColor.red,
         ResistanceColor.orange,
-        ResistanceColor.yellow,
         ResistanceColor.green,
         ResistanceColor.blue,
         ResistanceColor.purple,
-        ResistanceColor.gray,
-        ResistanceColor.white,
         ResistanceColor.gold,
         ResistanceColor.silver,
     ]
