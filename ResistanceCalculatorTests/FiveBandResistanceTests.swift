@@ -27,7 +27,7 @@ class FiveBandResistanceTests: XCTestCase {
         }
     }
     
-    // 3つ目のバンドのResistanceColorのmultiplierはnilではない
+    // 3つ目のバンドのResistanceColorのnumberはnilではない
     func testThirdBandValueNotNil() throws {
         let fiveBandResistance = FiveBandResistance()
         for resistanceColor in fiveBandResistance.thirdBands {
@@ -35,7 +35,7 @@ class FiveBandResistanceTests: XCTestCase {
         }
     }
     
-    // 4つ目のバンドのResistanceColorのerrorはnilではない
+    // 4つ目のバンドのResistanceColorのmultiplierはnilではない
     func testFourthBandValueNotNil() throws {
         let fiveBandResistance = FiveBandResistance()
         for resistanceColor in fiveBandResistance.fourthBands {

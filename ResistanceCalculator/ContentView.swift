@@ -7,17 +7,18 @@ struct ContentView: View {
                 .tabItem {
                     Image(R.image.tabbarResistance.name)
                         .renderingMode(.template)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.gray)
                     Text("Registance")
             }
             ConfigView()
                 .tabItem {
                     Image(R.image.tabbarOther.name)
                         .renderingMode(.template)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.gray)
                     Text("Config")
                 }
         }
+        .accentColor(Color.black)
     }
 }
 

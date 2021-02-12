@@ -10,12 +10,13 @@ class FiveBandResistance {
     var resistance: Resistance? {
         guard let firstNumber = firstBandColorCode.number,
               let secondNumber = secondBandColorCode.number,
-              let multiplier = thirdBandColorCode.multiplier,
-              let error = fourBandColorCode.error else {
+              let thirdNumber = thirdBandColorCode.number,
+              let multiplier = fourBandColorCode.multiplier,
+              let error = fifthBandColorCode.error else {
             return nil
         }
               
-        let resistance = (firstNumber * 10 + secondNumber) * multiplier
+        let resistance = (firstNumber * 100 + secondNumber * 10 + thirdNumber) * multiplier
         let errorResistance = resistance * (error / 100)
         return Resistance(resistance: resistance, error: error, errorResistance: errorResistance)
     }
