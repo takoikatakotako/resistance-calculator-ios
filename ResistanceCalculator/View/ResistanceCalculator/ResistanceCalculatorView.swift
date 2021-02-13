@@ -5,30 +5,46 @@ struct ResistanceCalculatorView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
+            ZStack(alignment: .topTrailing) {
+                Button {
+                    viewModel.showingHelpView = true
+                } label: {
+                    Image(R.image.resistanceHelp.name)
+                        .resizable()
+                        .frame(width: 28, height: 28)
+                        .background(Color.white)
+                        .padding()
+                }
+
+                VStack {
+                    Spacer()
+                    ResistanceText(
+                        isFourbandResistance: viewModel.showing4BandResistance,
+                        isPercentError: viewModel.showingPercentError,
+                        fourBandResistance: $viewModel.fourBandResistance,
+                        fiveBandResistance: $viewModel.fiveBandResistance)
+                        .padding(.top, 16)
+                    
+                    RegistanceImage(
+                        isFourbandResistance: viewModel.showing4BandResistance,
+                        fourBandResistance: $viewModel.fourBandResistance,
+                        fiveBandResistance: $viewModel.fiveBandResistance
+                    )
+                    
+                    ResistancePickerView(
+                        isFourbandResistance: viewModel.showing4BandResistance,
+                        fourBandResistance: $viewModel.fourBandResistance,
+                        fiveBandResistance: $viewModel.fiveBandResistance
+                    )
+                    .frame(height: 160)
+                    
+                    Spacer()
+                }
                 
-                ResistanceText(
-                    isFourbandResistance: viewModel.showing4BandResistance,
-                    isPercentError: viewModel.showingPercentError,
-                    fourBandResistance: $viewModel.fourBandResistance,
-                    fiveBandResistance: $viewModel.fiveBandResistance)
-                    .padding(.top, 16)
-                
-                RegistanceImage(
-                    isFourbandResistance: viewModel.showing4BandResistance,
-                    fourBandResistance: $viewModel.fourBandResistance,
-                    fiveBandResistance: $viewModel.fiveBandResistance
-                )
-                
-                ResistancePickerView(
-                    isFourbandResistance: viewModel.showing4BandResistance,
-                    fourBandResistance: $viewModel.fourBandResistance,
-                    fiveBandResistance: $viewModel.fiveBandResistance
-                )
-                .frame(height: 160)
-                
-                Spacer()
+                if viewModel.showingHelpView {
+                    ResistanceHelpView(showingResistanceHelpView: $viewModel.showingHelpView)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,  maxHeight: .infinity)
+                }
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             .background(Color.white)

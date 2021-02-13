@@ -116,8 +116,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 10 images.
+  /// This `R.image` struct is generated, and contains static references to 12 images.
   struct image {
+    /// Image `color-code-graph`.
+    static let colorCodeGraph = Rswift.ImageResource(bundle: R.hostingBundle, name: "color-code-graph")
     /// Image `five-band-resistance`.
     static let fiveBandResistance = Rswift.ImageResource(bundle: R.hostingBundle, name: "five-band-resistance")
     /// Image `four-band-resistance`.
@@ -134,10 +136,19 @@ struct R: Rswift.Validatable {
     static let resistance4Color = Rswift.ImageResource(bundle: R.hostingBundle, name: "resistance-4-color")
     /// Image `resistance-5-color`.
     static let resistance5Color = Rswift.ImageResource(bundle: R.hostingBundle, name: "resistance-5-color")
+    /// Image `resistance-help`.
+    static let resistanceHelp = Rswift.ImageResource(bundle: R.hostingBundle, name: "resistance-help")
     /// Image `tabbar-other`.
     static let tabbarOther = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-other")
     /// Image `tabbar-resistance`.
     static let tabbarResistance = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-resistance")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "color-code-graph", bundle: ..., traitCollection: ...)`
+    static func colorCodeGraph(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.colorCodeGraph, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "five-band-resistance", bundle: ..., traitCollection: ...)`
@@ -192,6 +203,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "resistance-5-color", bundle: ..., traitCollection: ...)`
     static func resistance5Color(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.resistance5Color, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "resistance-help", bundle: ..., traitCollection: ...)`
+    static func resistanceHelp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.resistanceHelp, compatibleWith: traitCollection)
     }
     #endif
 
