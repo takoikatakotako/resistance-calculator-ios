@@ -164,10 +164,45 @@ class FourBandResistanceTests: XCTestCase {
         XCTAssertEqual(fourBandResistance.fourthBandColorCode, ResistanceColor.brown)
 
         let resistance = fourBandResistance.resistance!
-        XCTAssertEqual(resistance.resistance, 0)
-        XCTAssertEqual(resistance.resistanceString, "0.0 Ω")
-        XCTAssertEqual(resistance.error, 1)
-        XCTAssertEqual(resistance.errorResistance, 0)
-        XCTAssertEqual(resistance.errorResistanceString, "0.0 Ω")
+        XCTAssertEqual(resistance.resistanceString, "0 Ω")
+        XCTAssertEqual(resistance.errorResistanceString, "0 Ω")
+        XCTAssertEqual(resistance.errorString, "1 %")
+    }
+    
+    // 茶黒黒金
+    func testBrownBlackBlackGold() throws {
+        let fourBandResistance = FourBandResistance()
+        fourBandResistance.firstBandIndex = 1
+        fourBandResistance.secondBandIndex = 0
+        fourBandResistance.thirdBandIndex = 0
+        fourBandResistance.fourthBandIndex = 6
+        XCTAssertEqual(fourBandResistance.firstBandColorCode, ResistanceColor.brown)
+        XCTAssertEqual(fourBandResistance.secondBandColorCode, ResistanceColor.black)
+        XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.black)
+        XCTAssertEqual(fourBandResistance.fourthBandColorCode, ResistanceColor.gold)
+
+        let resistance = fourBandResistance.resistance!
+        XCTAssertEqual(resistance.resistanceString, "10 Ω")
+        XCTAssertEqual(resistance.errorResistanceString, "0.5 Ω")
+        XCTAssertEqual(resistance.errorString, "5 %")
+    }
+    
+    // 茶赤黒金
+    func testBrownRedBlackGold() throws {
+        let fourBandResistance = FourBandResistance()
+        fourBandResistance.firstBandIndex = 1
+        fourBandResistance.secondBandIndex = 2
+        fourBandResistance.thirdBandIndex = 0
+        fourBandResistance.fourthBandIndex = 6
+        
+        XCTAssertEqual(fourBandResistance.firstBandColorCode, ResistanceColor.brown)
+        XCTAssertEqual(fourBandResistance.secondBandColorCode, ResistanceColor.red)
+        XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.black)
+        XCTAssertEqual(fourBandResistance.fourthBandColorCode, ResistanceColor.gold)
+
+        let resistance = fourBandResistance.resistance!
+        XCTAssertEqual(resistance.resistanceString, "12 Ω")
+        XCTAssertEqual(resistance.errorResistanceString, "0.6 Ω")
+        XCTAssertEqual(resistance.errorString, "5 %")
     }
 }

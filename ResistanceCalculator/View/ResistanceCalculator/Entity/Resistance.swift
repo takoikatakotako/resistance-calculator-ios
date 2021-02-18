@@ -10,25 +10,33 @@ struct Resistance {
     }
     
     var errorString: String {
-        return String(error) + " %"
+        return removeZerosFromEnd(value: error) + " %"
     }
     
     var errorResistanceString: String {
         return convertToResist(value: errorResistance)
     }
-    
-    private func convertToResist(value:Double) -> String{
+        
+    func convertToResist(value: Double) -> String {
         if value < 1e3 {
-            return String(value) + " Ω" 
+            return removeZerosFromEnd(value: value) + " Ω"
         }else if value < 1e6{
-            return String(value / 1e3) + " KΩ"
+            return removeZerosFromEnd(value: value / 1e3) + " KΩ"
         }else if value < 1e9{
-            return String(value / 1e6) + " MΩ"
+            return removeZerosFromEnd(value: value / 1e6) + " MΩ"
         }else if value < 1e12{
-            return String(value / 1e9) + " GΩ"
+            return removeZerosFromEnd(value: value / 1e9) + " GΩ"
         }else if value < 1e15{
-            return String(value / 1e12) + " TΩ"
+            return removeZerosFromEnd(value: value / 1e12) + " TΩ"
         }
-        return String(value)
+        return removeZerosFromEnd(value: value)
+    }
+    
+    func removeZerosFromEnd(value: Double) -> String {
+        let formatter = NumberFormatter()
+        let number = NSNumber(value: value)
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 16
+        return String(formatter.string(from: number) ?? "")
     }
 }

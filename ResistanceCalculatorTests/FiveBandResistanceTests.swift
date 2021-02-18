@@ -188,23 +188,24 @@ class FiveBandResistanceTests: XCTestCase {
         XCTAssertEqual(fiveBandResistance.fifthBands.count, 8)
     }
     
-    // 黒黒黒茶
-//    func testBlackBlackBlackBrown() throws {
-//        let fourBandResistance = FourBandResistance()
-//        fourBandResistance.firstBandIndex = 0
-//        fourBandResistance.secondBandIndex = 0
-//        fourBandResistance.thirdBandIndex = 0
-//        fourBandResistance.fourthBandIndex = 0
-//        XCTAssertEqual(fourBandResistance.firstBandColorCode, ResistanceColor.black)
-//        XCTAssertEqual(fourBandResistance.secondBandColorCode, ResistanceColor.black)
-//        XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.black)
-//        XCTAssertEqual(fourBandResistance.fourthBandColorCode, ResistanceColor.brown)
-//
-//        let resistance = fourBandResistance.resistance!
-//        XCTAssertEqual(resistance.resistance, 0)
-//        XCTAssertEqual(resistance.resistanceString, "0.0 Ω")
-//        XCTAssertEqual(resistance.error, 1)
-//        XCTAssertEqual(resistance.errorResistance, 0)
-//        XCTAssertEqual(resistance.errorResistanceString, "0.0 Ω")
-//    }
+    // 茶黒黒黒茶
+    func testBrownBlackBlackBlackBrown() throws {
+        let fiveBandResistance = FiveBandResistance()
+        fiveBandResistance.firstBandIndex = 1
+        fiveBandResistance.secondBandIndex = 0
+        fiveBandResistance.thirdBandIndex = 0
+        fiveBandResistance.fourthBandIndex = 0
+        fiveBandResistance.fifthBandIndex = 0
+        
+        XCTAssertEqual(fiveBandResistance.firstBandColorCode, ResistanceColor.brown)
+        XCTAssertEqual(fiveBandResistance.secondBandColorCode, ResistanceColor.black)
+        XCTAssertEqual(fiveBandResistance.thirdBandColorCode, ResistanceColor.black)
+        XCTAssertEqual(fiveBandResistance.fourBandColorCode, ResistanceColor.black)
+        XCTAssertEqual(fiveBandResistance.fifthBandColorCode, ResistanceColor.brown)
+
+        let resistance = fiveBandResistance.resistance!
+        XCTAssertEqual(resistance.resistanceString, "100 Ω")
+        XCTAssertEqual(resistance.errorResistanceString, "1 Ω")
+        XCTAssertEqual(resistance.errorString, "1 %")
+    }
 }
