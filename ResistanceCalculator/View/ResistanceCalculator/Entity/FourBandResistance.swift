@@ -52,6 +52,7 @@ class FourBandResistance {
         ResistanceColor.green,
         ResistanceColor.blue,
         ResistanceColor.purple,
+        ResistanceColor.gray,
         ResistanceColor.white,
         ResistanceColor.gold,
         ResistanceColor.silver,

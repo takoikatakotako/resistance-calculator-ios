@@ -77,7 +77,7 @@ struct ResistanceColor: Equatable {
         textColor: Color(UIColor.white),
         color: Color(UIColor.gray),
         number: 8,
-        multiplier: nil,
+        multiplier: 1e8,
         error: nil)
     
     static let white = ResistanceColor(
@@ -85,7 +85,7 @@ struct ResistanceColor: Equatable {
         textColor: Color(UIColor.black),
         color: Color(UIColor.white),
         number: 9,
-        multiplier: 0.001,
+        multiplier: 1e9,
         error: nil)
     
     static let gold = ResistanceColor(

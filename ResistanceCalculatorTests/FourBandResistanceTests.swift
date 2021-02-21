@@ -119,13 +119,15 @@ class FourBandResistanceTests: XCTestCase {
         fourBandResistance.thirdBandIndex = 7
         XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.purple)
         fourBandResistance.thirdBandIndex = 8
-        XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.white)
+        XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.gray)
         fourBandResistance.thirdBandIndex = 9
-        XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.gold)
+        XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.white)
         fourBandResistance.thirdBandIndex = 10
+        XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.gold)
+        fourBandResistance.thirdBandIndex = 11
         XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.silver)
-        // 全11色
-        XCTAssertEqual(fourBandResistance.thirdBands.count, 11)
+        // 全12色
+        XCTAssertEqual(fourBandResistance.thirdBands.count, 12)
     }
     
     // インデックスと色が一致していることを確認
