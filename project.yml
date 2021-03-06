@@ -49,8 +49,8 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.ResistanceCalculator
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
-        INFOPLIST_FILE: Config/Local/Info.plist
-        MARKETING_VERSION: 3.0.1
+        INFOPLIST_FILE: ResistanceCalculator/Info.plist
+        MARKETING_VERSION: 3.0.0
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Local
@@ -66,6 +66,8 @@ targets:
     dependencies:
       - package: R.swift.Library
         product: Rswift
+      - sdk: AdSupport.framework
+      - sdk: AppTrackingTransparency.framework
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -131,6 +133,8 @@ targets:
     dependencies:
       - package: R.swift.Library
         product: Rswift
+      - sdk: AdSupport.framework
+      - sdk: AppTrackingTransparency.framework
     preBuildScripts:
       - script: ./Scripts/BuildPhases/rswift.sh
         name: R.swift
@@ -143,8 +147,8 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: resistanceCalc.biz.sciencetools
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: 5RH346BQ66
-        INFOPLIST_FILE: Config/Production/Info.plist
-        MARKETING_VERSION: 3.0.1
+        INFOPLIST_FILE: ResistanceCalculator/Info.plist
+        MARKETING_VERSION: 3.0.0
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Production

@@ -13,7 +13,7 @@ struct ConfigView: View {
                 }
             }
             .background(Color.orange)
-            .navigationBarTitle("Config", displayMode: .inline)
+            .navigationBarTitle("設定", displayMode: .inline)
         }
     }
     

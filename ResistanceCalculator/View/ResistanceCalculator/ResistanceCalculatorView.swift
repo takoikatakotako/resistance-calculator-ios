@@ -1,4 +1,6 @@
 import SwiftUI
+import AdSupport
+import AppTrackingTransparency
 
 struct ResistanceCalculatorView: View {
     @StateObject var viewModel = ResistanceCalculatorViewModel()
@@ -15,7 +17,7 @@ struct ResistanceCalculatorView: View {
                         .background(Color.white)
                         .padding()
                 }
-
+                
                 VStack {
                     Spacer()
                     ResistanceText(
@@ -44,6 +46,21 @@ struct ResistanceCalculatorView: View {
                 if viewModel.showingHelpView {
                     ResistanceHelpView(showingResistanceHelpView: $viewModel.showingHelpView)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,  maxHeight: .infinity)
+                }
+            }
+            .onAppear {
+                switch ATTrackingManager.trackingAuthorizationStatus {
+                case .notDetermined:
+                    ATTrackingManager.requestTrackingAuthorization { _ in
+                    }
+                case .restricted:
+                    break
+                case .denied:
+                    break
+                case .authorized:
+                    break
+                @unknown default:
+                    break
                 }
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
