@@ -23,12 +23,6 @@ schemes:
         - name: ResistanceCalculatorTests
           parallelizable: true
           randomExecutionOrder: true
-  # Staging:
-  #   build:
-  #     targets:
-  #       Staging: all
-  #   run:
-  #     config: Debug
   Production:
     build:
       targets:
@@ -75,53 +69,6 @@ targets:
           - $TEMP_DIR/rswift-lastrun
         outputFiles:
           - $SRCROOT/ResistanceCalculator/Generated/R.generated.swift
-  # CharalarmStaging:
-  #   type: application
-  #   platform: iOS
-  #   deploymentTarget: "14.0"
-  #   sources:
-  #     - path: ResistanceCalculator
-  #       excludes:
-  #         - ResistanceCalculator/Resource
-  #     - path: ResistanceCalculator/Resource
-  #       type: folder
-  #     - path: Config/Staging
-  #   settings:
-  #     base:
-  #       CODE_SIGN_ENTITLEMENTS: ResistanceCalculator/ResistanceCalculatorRelease.entitlements
-  #       PRODUCT_BUNDLE_IDENTIFIER: com.charalarm.staging
-  #       CODE_SIGN_STYLE: Automatic
-  #       DEVELOPMENT_TEAM: 5RH346BQ66
-  #       INFOPLIST_FILE: Config/Staging/Info.plist
-  #       MARKETING_VERSION: 2.0.4
-  #       CURRENT_PROJECT_VERSION: 1
-  #       TARGETED_DEVICE_FAMILY: 1
-  #       ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Staging
-  #     configs:
-  #       Debug:
-  #         CODE_SIGN_ENTITLEMENTS: ResistanceCalculator/ResistanceCalculatorDebug.entitlements
-  #         API_ENDPOINT: https://api-stg.charalarm.com
-  #         RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
-  #         GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
-  #         ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
-  #         ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
-  #       Release:
-  #         CODE_SIGN_ENTITLEMENTS: ResistanceCalculator/ResistanceCalculatorRelease.entitlements
-  #         API_ENDPOINT: https://api-stg.charalarm.com
-  #         RESOURCE_ENDPOINT: https://stg-resource.charalarm.com
-  #         GAD_APPLICATION_IDENTIFER: ca-app-pub-3940256099942544~1458002511
-  #         ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
-  #         ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
-  #   dependencies:
-  #     - package: R.swift.Library
-  #       product: Rswift
-  #   preBuildScripts:
-  #     - script: ./Scripts/BuildPhases/rswift.sh
-  #       name: R.swift
-  #       inputFiles:
-  #         - $TEMP_DIR/rswift-lastrun
-  #       outputFiles:
-  #         - $SRCROOT/ResistanceCalculator/Generated/R.generated.swift
   Production:
     type: application
     platform: iOS
@@ -186,24 +133,3 @@ targets:
     dependencies:
       - target: Local
 
-
-  # LiveNoteTests:
-  #   type: bundle.unit-test
-  #   platform: iOS
-  #   sources:
-  #     - LiveNoteTests
-  #   settings:
-  #     base:
-  #       INFOPLIST_FILE: LiveNoteTests/Info.plist
-  #   dependencies:
-  #     - target: LiveNote
-  # LiveNoteUITests:
-  #   type: bundle.ui-testing
-  #   platform: iOS
-  #   sources:
-  #     - LiveNoteUITests
-  #   settings:
-  #     base:
-  #       INFOPLIST_FILE: LiveNoteUITests/Info.plist
-  #   dependencies:
-  #     - target: LiveNote
