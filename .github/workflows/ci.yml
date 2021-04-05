@@ -23,3 +23,7 @@ jobs:
     # Xcodeのバージョン出力
     - name: Show Xcode version
       run: xcodebuild -version
+
+    # Mintのインストール
+    - name: Install Mint
+      run: brew install mint
