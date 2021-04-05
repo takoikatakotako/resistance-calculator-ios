@@ -27,3 +27,7 @@ jobs:
     # Mintのインストール
     - name: Install Mint
       run: brew install mint
+
+    # Mintで管理しているライブラリのインストール
+    - name: Install Mint Library
+      run: mint bootstrap
