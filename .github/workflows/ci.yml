@@ -31,3 +31,7 @@ jobs:
     # Mintで管理しているライブラリのインストール
     - name: Install Mint Library
       run: mint bootstrap
+
+    # Mintでプロジェクトファイルを作成
+    - name: Generate Project
+      run: mint run xcodegen xcodegen genrate
