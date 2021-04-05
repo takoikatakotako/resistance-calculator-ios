@@ -34,4 +34,9 @@ jobs:
 
     # Mintでプロジェクトファイルを作成
     - name: Generate Project
-      run: mint run xcodegen xcodegen genrate
+      run: mint run xcodegen xcodegen generate
+
+    # テストを実行
+    - name: Run Tests
+      run:  xcodebuild -project ResistanceCalculator.xcodeproj -scheme "Local" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.4' test
+
