@@ -30,13 +30,18 @@ jobs:
 
     - name: Mint Version
       run: mint --version
-    # # Mintで管理しているライブラリのインストール
-    # - name: Install Mint Library
-    #   run: mint bootstrap
 
-    # # Mintでプロジェクトファイルを作成
-    # - name: Generate Project
-    #   run: mint run xcodegen xcodegen generate
+    # Mintで管理しているライブラリのインストール
+    - name: Install Mint Library
+      run: mint bootstrap
+
+    # LS
+    - name: ls
+      run: ls
+
+    # Mintでプロジェクトファイルを作成
+    - name: Generate Project
+      run: mint run xcodegen xcodegen generate
 
     # # テストを実行
     # - name: Run Tests
