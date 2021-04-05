@@ -28,15 +28,17 @@ jobs:
     - name: Install Mint
       run: brew install mint
 
-    # Mintで管理しているライブラリのインストール
-    - name: Install Mint Library
-      run: mint bootstrap
+   - name: Mint Version
+     run: mint --version
+    # # Mintで管理しているライブラリのインストール
+    # - name: Install Mint Library
+    #   run: mint bootstrap
 
-    # Mintでプロジェクトファイルを作成
-    - name: Generate Project
-      run: mint run xcodegen xcodegen generate
+    # # Mintでプロジェクトファイルを作成
+    # - name: Generate Project
+    #   run: mint run xcodegen xcodegen generate
 
-    # テストを実行
-    - name: Run Tests
-      run:  xcodebuild -project ResistanceCalculator.xcodeproj -scheme "Local" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.4' test
+    # # テストを実行
+    # - name: Run Tests
+    #   run:  xcodebuild -project ResistanceCalculator.xcodeproj -scheme "Local" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.4' test
 
