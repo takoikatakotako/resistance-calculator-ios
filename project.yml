@@ -37,7 +37,7 @@ targets:
     deploymentTarget: "14.0"
     sources:
       - path: ResistanceCalculator
-      - path: Config/Local
+      # - path: Config/Local
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.swiswiswift.ResistanceCalculator
@@ -76,7 +76,7 @@ targets:
     sources:
     sources:
       - path: ResistanceCalculator
-      - path: Config/Production
+      # - path: Config/Production
     dependencies:
       - package: R.swift.Library
         product: Rswift
