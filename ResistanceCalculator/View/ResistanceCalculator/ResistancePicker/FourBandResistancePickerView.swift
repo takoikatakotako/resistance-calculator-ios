@@ -13,6 +13,7 @@ struct FourBandResistancePickerView: View {
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .frame(width: geometry.size.width / 4, height: 160)
+                .compositingGroup()
                 .clipped()
                 
                 Picker("", selection: $fourBandResistance.secondBandIndex) {
@@ -22,6 +23,7 @@ struct FourBandResistancePickerView: View {
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .frame(width: geometry.size.width / 4, height: 160)
+                .compositingGroup()
                 .clipped()
                 
                 Picker("", selection: $fourBandResistance.thirdBandIndex) {
@@ -31,6 +33,7 @@ struct FourBandResistancePickerView: View {
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .frame(width: geometry.size.width / 4, height: 160)
+                .compositingGroup()
                 .clipped()
                 
                 Picker("", selection: $fourBandResistance.fourthBandIndex) {
@@ -40,6 +43,7 @@ struct FourBandResistancePickerView: View {
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .frame(width: geometry.size.width / 4, height: 160)
+                .compositingGroup()
                 .clipped()
             }
         }
