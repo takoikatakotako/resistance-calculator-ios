@@ -13,6 +13,7 @@ struct FiveBandResistancePickerView: View {
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .frame(width: geometry.size.width / 5, height: 160)
+                .compositingGroup()
                 .clipped()
                 
                 Picker("", selection: $fiveBandResistance.secondBandIndex) {
@@ -22,6 +23,7 @@ struct FiveBandResistancePickerView: View {
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .frame(width: geometry.size.width / 5, height: 160)
+                .compositingGroup()
                 .clipped()
                 
                 Picker("", selection: $fiveBandResistance.thirdBandIndex) {
@@ -31,6 +33,7 @@ struct FiveBandResistancePickerView: View {
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .frame(width: geometry.size.width / 5, height: 160)
+                .compositingGroup()
                 .clipped()
                 
                 Picker("", selection: $fiveBandResistance.fourthBandIndex) {
@@ -40,6 +43,7 @@ struct FiveBandResistancePickerView: View {
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .frame(width: geometry.size.width / 5, height: 160)
+                .compositingGroup()
                 .clipped()
                 
                 Picker("", selection: $fiveBandResistance.fifthBandIndex) {
@@ -49,6 +53,7 @@ struct FiveBandResistancePickerView: View {
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
                 .frame(width: geometry.size.width / 5, height: 160)
+                .compositingGroup()
                 .clipped()
             }
         }
