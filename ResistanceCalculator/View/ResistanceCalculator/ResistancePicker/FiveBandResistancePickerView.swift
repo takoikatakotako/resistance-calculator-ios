@@ -15,7 +15,7 @@ struct FiveBandResistancePickerView: View {
                 .frame(width: geometry.size.width / 5, height: 160)
                 .compositingGroup()
                 .clipped()
-                
+
                 Picker("", selection: $fiveBandResistance.secondBandIndex) {
                     ForEach(0 ..< fiveBandResistance.secondBands.count) {
                         ResistancePickerCell(resistanceColor: fiveBandResistance.secondBands[$0])
@@ -25,7 +25,7 @@ struct FiveBandResistancePickerView: View {
                 .frame(width: geometry.size.width / 5, height: 160)
                 .compositingGroup()
                 .clipped()
-                
+
                 Picker("", selection: $fiveBandResistance.thirdBandIndex) {
                     ForEach(0 ..< fiveBandResistance.thirdBands.count) {
                         ResistancePickerCell(resistanceColor: fiveBandResistance.thirdBands[$0])
@@ -35,7 +35,7 @@ struct FiveBandResistancePickerView: View {
                 .frame(width: geometry.size.width / 5, height: 160)
                 .compositingGroup()
                 .clipped()
-                
+
                 Picker("", selection: $fiveBandResistance.fourthBandIndex) {
                     ForEach(0 ..< fiveBandResistance.fourthBands.count) {
                         ResistancePickerCell(resistanceColor: fiveBandResistance.fourthBands[$0])
@@ -45,7 +45,7 @@ struct FiveBandResistancePickerView: View {
                 .frame(width: geometry.size.width / 5, height: 160)
                 .compositingGroup()
                 .clipped()
-                
+
                 Picker("", selection: $fiveBandResistance.fifthBandIndex) {
                     ForEach(0 ..< fiveBandResistance.fifthBands.count) {
                         ResistancePickerCell(resistanceColor: fiveBandResistance.fifthBands[$0])
@@ -67,9 +67,8 @@ struct FiveBandResistancePickerView_Previews: PreviewProvider {
             FiveBandResistancePickerView(fiveBandResistance: $fiveBandResistance)
          }
      }
-    
+
     static var previews: some View {
         PreviewWrapper()
     }
 }
-

@@ -5,9 +5,9 @@ options:
   # postGenCommand: bundle exec pod install
 
 packages:
-  R.swift.Library:
-    url: https://github.com/mac-cain13/R.swift.Library
-    from: 5.2.2
+  R.swift:
+    url: https://github.com/mac-cain13/R.swift
+    from: 7.8.0
 
 schemes:
   Local:
@@ -58,8 +58,8 @@ targets:
           ADMOB_ALARM_LIST: ca-app-pub-3940256099942544/2934735716
           ADMOB_CONFIG: ca-app-pub-3940256099942544/2934735716
     dependencies:
-      - package: R.swift.Library
-        product: Rswift
+      - package: R.swift
+        product: RswiftLibrary
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
     preBuildScripts:
@@ -74,12 +74,11 @@ targets:
     platform: iOS
     deploymentTarget: "14.0"
     sources:
-    sources:
       - path: ResistanceCalculator
       # - path: Config/Production
     dependencies:
-      - package: R.swift.Library
-        product: Rswift
+      - package: R.swift
+        product: RswiftLibrary
       - sdk: AdSupport.framework
       - sdk: AppTrackingTransparency.framework
     preBuildScripts:

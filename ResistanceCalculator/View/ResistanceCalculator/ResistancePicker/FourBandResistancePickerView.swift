@@ -15,7 +15,7 @@ struct FourBandResistancePickerView: View {
                 .frame(width: geometry.size.width / 4, height: 160)
                 .compositingGroup()
                 .clipped()
-                
+
                 Picker("", selection: $fourBandResistance.secondBandIndex) {
                     ForEach(0 ..< fourBandResistance.secondBands.count) {
                         ResistancePickerCell(resistanceColor: fourBandResistance.secondBands[$0])
@@ -25,7 +25,7 @@ struct FourBandResistancePickerView: View {
                 .frame(width: geometry.size.width / 4, height: 160)
                 .compositingGroup()
                 .clipped()
-                
+
                 Picker("", selection: $fourBandResistance.thirdBandIndex) {
                     ForEach(0 ..< fourBandResistance.thirdBands.count) {
                         ResistancePickerCell(resistanceColor: fourBandResistance.thirdBands[$0])
@@ -35,7 +35,7 @@ struct FourBandResistancePickerView: View {
                 .frame(width: geometry.size.width / 4, height: 160)
                 .compositingGroup()
                 .clipped()
-                
+
                 Picker("", selection: $fourBandResistance.fourthBandIndex) {
                     ForEach(0 ..< fourBandResistance.fourthBands.count) {
                         ResistancePickerCell(resistanceColor: fourBandResistance.fourthBands[$0])
@@ -57,7 +57,7 @@ struct FourBandResistancePickerView_Previews: PreviewProvider {
             FourBandResistancePickerView(fourBandResistance: $fourBandResistance)
          }
      }
-    
+
     static var previews: some View {
         PreviewWrapper()
     }

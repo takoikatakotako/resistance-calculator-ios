@@ -2,15 +2,15 @@ import XCTest
 @testable import Local
 
 class FourBandResistanceTests: XCTestCase {
-    
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     // 1つ目のバンドのResistanceColorのnumberはnilではない
     func testFirstBandValueNotNil() throws {
         let fourBandResistance = FourBandResistance()
@@ -18,7 +18,7 @@ class FourBandResistanceTests: XCTestCase {
             XCTAssertNotNil(resistanceColor.number)
         }
     }
-    
+
     // 2つ目のバンドのResistanceColorのnumberはnilではない
     func testSecondBandValueNotNil() throws {
         let fourBandResistance = FourBandResistance()
@@ -26,7 +26,7 @@ class FourBandResistanceTests: XCTestCase {
             XCTAssertNotNil(resistanceColor.number)
         }
     }
-    
+
     // 3つ目のバンドのResistanceColorのmultiplierはnilではない
     func testThirdBandValueNotNil() throws {
         let fourBandResistance = FourBandResistance()
@@ -34,7 +34,7 @@ class FourBandResistanceTests: XCTestCase {
             XCTAssertNotNil(resistanceColor.multiplier)
         }
     }
-    
+
     // 4つ目のバンドのResistanceColorのerrorはnilではない
     func testFourthBandValueNotNil() throws {
         let fourBandResistance = FourBandResistance()
@@ -42,7 +42,7 @@ class FourBandResistanceTests: XCTestCase {
             XCTAssertNotNil(resistanceColor.error)
         }
     }
-    
+
     // インデックスと色が一致していることを確認
     func testFirstBandIndexAndColorPair() throws {
         let fourBandResistance = FourBandResistance()
@@ -66,11 +66,11 @@ class FourBandResistanceTests: XCTestCase {
         XCTAssertEqual(fourBandResistance.firstBandColorCode, ResistanceColor.gray)
         fourBandResistance.firstBandIndex = 9
         XCTAssertEqual(fourBandResistance.firstBandColorCode, ResistanceColor.white)
-        
+
         // 全10色
         XCTAssertEqual(fourBandResistance.firstBands.count, 10)
     }
-    
+
     // インデックスと色が一致していることを確認
     func testSecondBandIndexAndColorPair() throws {
         let fourBandResistance = FourBandResistance()
@@ -94,11 +94,11 @@ class FourBandResistanceTests: XCTestCase {
         XCTAssertEqual(fourBandResistance.secondBandColorCode, ResistanceColor.gray)
         fourBandResistance.secondBandIndex = 9
         XCTAssertEqual(fourBandResistance.secondBandColorCode, ResistanceColor.white)
-        
+
         // 全10色
         XCTAssertEqual(fourBandResistance.secondBands.count, 10)
     }
-    
+
     // インデックスと色が一致していることを確認
     func testThirdBandIndexAndColorPair() throws {
         let fourBandResistance = FourBandResistance()
@@ -129,7 +129,7 @@ class FourBandResistanceTests: XCTestCase {
         // 全12色
         XCTAssertEqual(fourBandResistance.thirdBands.count, 12)
     }
-    
+
     // インデックスと色が一致していることを確認
     func testFourthBandIndexAndColorPair() throws {
         let fourBandResistance = FourBandResistance()
@@ -152,7 +152,7 @@ class FourBandResistanceTests: XCTestCase {
         // 全11色
         XCTAssertEqual(fourBandResistance.fourthBands.count, 8)
     }
-    
+
     // 黒黒黒茶
     func testBlackBlackBlackBrown() throws {
         let fourBandResistance = FourBandResistance()
@@ -170,7 +170,7 @@ class FourBandResistanceTests: XCTestCase {
         XCTAssertEqual(resistance.errorResistanceString, "0 Ω")
         XCTAssertEqual(resistance.errorString, "1 %")
     }
-    
+
     // 茶黒黒金
     func testBrownBlackBlackGold() throws {
         let fourBandResistance = FourBandResistance()
@@ -188,7 +188,7 @@ class FourBandResistanceTests: XCTestCase {
         XCTAssertEqual(resistance.errorResistanceString, "0.5 Ω")
         XCTAssertEqual(resistance.errorString, "5 %")
     }
-    
+
     // 茶赤黒金
     func testBrownRedBlackGold() throws {
         let fourBandResistance = FourBandResistance()
@@ -196,7 +196,7 @@ class FourBandResistanceTests: XCTestCase {
         fourBandResistance.secondBandIndex = 2
         fourBandResistance.thirdBandIndex = 0
         fourBandResistance.fourthBandIndex = 6
-        
+
         XCTAssertEqual(fourBandResistance.firstBandColorCode, ResistanceColor.brown)
         XCTAssertEqual(fourBandResistance.secondBandColorCode, ResistanceColor.red)
         XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.black)

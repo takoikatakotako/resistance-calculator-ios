@@ -10,18 +10,18 @@ struct ResistanceHelpView: View {
                 Image(R.image.colorCodeGraph.name)
                     .resizable()
                     .scaledToFit()
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,  maxHeight: .infinity)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             }
             .background(Color.white.opacity(0.5))
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,  maxHeight: .infinity)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         }
     }
 }
 
-//struct ResistanceHelpView_Previews: PreviewProvider {
+// struct ResistanceHelpView_Previews: PreviewProvider {
 //
 //
 //    static var previews: some View {
 //        ResistanceHelpView(showingResistanceHelpView: <#Binding<Bool>#>)
 //    }
-//}
+// }

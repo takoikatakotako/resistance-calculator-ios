@@ -6,7 +6,7 @@ class FiveBandResistance {
     var thirdBandIndex: Int = 4
     var fourthBandIndex: Int = 5
     var fifthBandIndex: Int = 6
-    
+
     var resistance: Resistance? {
         guard let firstNumber = firstBandColorCode.number,
               let secondNumber = secondBandColorCode.number,
@@ -15,12 +15,12 @@ class FiveBandResistance {
               let error = fifthBandColorCode.error else {
             return nil
         }
-              
+
         let resistance = (firstNumber * 100 + secondNumber * 10 + thirdNumber) * multiplier
         let errorResistance = resistance * (error / 100)
         return Resistance(resistance: resistance, error: error, errorResistance: errorResistance)
     }
-    
+
     let firstBands = [
         ResistanceColor.black,
         ResistanceColor.brown,
@@ -31,9 +31,9 @@ class FiveBandResistance {
         ResistanceColor.blue,
         ResistanceColor.purple,
         ResistanceColor.gray,
-        ResistanceColor.white,
+        ResistanceColor.white
     ]
-    
+
     let secondBands = [
         ResistanceColor.black,
         ResistanceColor.brown,
@@ -44,7 +44,7 @@ class FiveBandResistance {
         ResistanceColor.blue,
         ResistanceColor.purple,
         ResistanceColor.gray,
-        ResistanceColor.white,
+        ResistanceColor.white
     ]
     let thirdBands = [
         ResistanceColor.black,
@@ -56,7 +56,7 @@ class FiveBandResistance {
         ResistanceColor.blue,
         ResistanceColor.purple,
         ResistanceColor.gray,
-        ResistanceColor.white,
+        ResistanceColor.white
     ]
     let fourthBands = [
         ResistanceColor.black,
@@ -69,9 +69,9 @@ class FiveBandResistance {
         ResistanceColor.purple,
         ResistanceColor.white,
         ResistanceColor.gold,
-        ResistanceColor.silver,
+        ResistanceColor.silver
     ]
-    
+
     let fifthBands = [
         ResistanceColor.brown,
         ResistanceColor.red,
@@ -80,27 +80,26 @@ class FiveBandResistance {
         ResistanceColor.blue,
         ResistanceColor.purple,
         ResistanceColor.gold,
-        ResistanceColor.silver,
+        ResistanceColor.silver
     ]
-    
+
     var firstBandColorCode: ResistanceColor {
         return firstBands[firstBandIndex]
     }
-    
+
     var secondBandColorCode: ResistanceColor {
         return secondBands[secondBandIndex]
     }
-    
+
     var thirdBandColorCode: ResistanceColor {
         return thirdBands[thirdBandIndex]
     }
-    
+
     var fourBandColorCode: ResistanceColor {
         return fourthBands[fourthBandIndex]
     }
-    
+
     var fifthBandColorCode: ResistanceColor {
         return fifthBands[fifthBandIndex]
     }
 }
-

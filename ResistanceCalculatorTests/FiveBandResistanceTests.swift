@@ -2,15 +2,15 @@ import XCTest
 @testable import Local
 
 class FiveBandResistanceTests: XCTestCase {
-    
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     // 1つ目のバンドのResistanceColorのnumberはnilではない
     func testFirstBandValueNotNil() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -18,7 +18,7 @@ class FiveBandResistanceTests: XCTestCase {
             XCTAssertNotNil(resistanceColor.number)
         }
     }
-    
+
     // 2つ目のバンドのResistanceColorのnumberはnilではない
     func testSecondBandValueNotNil() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -26,7 +26,7 @@ class FiveBandResistanceTests: XCTestCase {
             XCTAssertNotNil(resistanceColor.number)
         }
     }
-    
+
     // 3つ目のバンドのResistanceColorのnumberはnilではない
     func testThirdBandValueNotNil() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -34,7 +34,7 @@ class FiveBandResistanceTests: XCTestCase {
             XCTAssertNotNil(resistanceColor.number)
         }
     }
-    
+
     // 4つ目のバンドのResistanceColorのmultiplierはnilではない
     func testFourthBandValueNotNil() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -42,7 +42,7 @@ class FiveBandResistanceTests: XCTestCase {
             XCTAssertNotNil(resistanceColor.multiplier)
         }
     }
-    
+
     // 5つ目のバンドのResistanceColorのerrorはnilではない
     func testFiveBandValueNotNil() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -50,7 +50,7 @@ class FiveBandResistanceTests: XCTestCase {
             XCTAssertNotNil(resistanceColor.error)
         }
     }
-    
+
     // 1本目のバンドのインデックスと色が一致していることを確認
     func testFirstBandIndexAndColorPair() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -74,11 +74,11 @@ class FiveBandResistanceTests: XCTestCase {
         XCTAssertEqual(fiveBandResistance.firstBandColorCode, ResistanceColor.gray)
         fiveBandResistance.firstBandIndex = 9
         XCTAssertEqual(fiveBandResistance.firstBandColorCode, ResistanceColor.white)
-        
+
         // 全10色
         XCTAssertEqual(fiveBandResistance.firstBands.count, 10)
     }
-    
+
     // 2本目のバンドのインデックスと色が一致していることを確認
     func testSecondBandIndexAndColorPair() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -102,11 +102,11 @@ class FiveBandResistanceTests: XCTestCase {
         XCTAssertEqual(fiveBandResistance.firstBandColorCode, ResistanceColor.gray)
         fiveBandResistance.firstBandIndex = 9
         XCTAssertEqual(fiveBandResistance.firstBandColorCode, ResistanceColor.white)
-        
+
         // 全10色
         XCTAssertEqual(fiveBandResistance.secondBands.count, 10)
     }
-    
+
     // 3本目のバンドのインデックスと色が一致していることを確認
     func testThirdBandIndexAndColorPair() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -134,8 +134,7 @@ class FiveBandResistanceTests: XCTestCase {
         // 全10色
         XCTAssertEqual(fiveBandResistance.thirdBands.count, 10)
     }
-    
-    
+
     // 4本目のバンドのインデックスと色が一致していることを確認
     func testFourthBandIndexAndColorPair() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -164,7 +163,7 @@ class FiveBandResistanceTests: XCTestCase {
         // 全11色
         XCTAssertEqual(fiveBandResistance.fourthBands.count, 11)
     }
-    
+
     // 4本目のバンドのインデックスと色が一致していることを確認
     func testFifthBandIndexAndColorPair() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -187,7 +186,7 @@ class FiveBandResistanceTests: XCTestCase {
         // 全11色
         XCTAssertEqual(fiveBandResistance.fifthBands.count, 8)
     }
-    
+
     // 茶黒黒黒茶
     func testBrownBlackBlackBlackBrown() throws {
         let fiveBandResistance = FiveBandResistance()
@@ -196,7 +195,7 @@ class FiveBandResistanceTests: XCTestCase {
         fiveBandResistance.thirdBandIndex = 0
         fiveBandResistance.fourthBandIndex = 0
         fiveBandResistance.fifthBandIndex = 0
-        
+
         XCTAssertEqual(fiveBandResistance.firstBandColorCode, ResistanceColor.brown)
         XCTAssertEqual(fiveBandResistance.secondBandColorCode, ResistanceColor.black)
         XCTAssertEqual(fiveBandResistance.thirdBandColorCode, ResistanceColor.black)

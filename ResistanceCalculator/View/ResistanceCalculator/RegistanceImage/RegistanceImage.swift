@@ -29,7 +29,7 @@ struct RegistanceImage_Previews: PreviewProvider {
             )
          }
      }
-    
+
     static var previews: some View {
         PreviewWrapper()
     }

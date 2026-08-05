@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct FiveBandResistanceImage: View {
@@ -35,7 +34,7 @@ struct FiveBandResistanceImage_Previews: PreviewProvider {
             FiveBandResistanceImage(fiveBandResistance: $fiveBandResistance)
          }
      }
-    
+
     static var previews: some View {
         PreviewWrapper()
             .previewLayout(.sizeThatFits)
