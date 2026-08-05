@@ -1,12 +1,10 @@
 import SwiftUI
-import AdSupport
-import AppTrackingTransparency
 
 struct ResistanceCalculatorView: View {
     @StateObject var viewModel = ResistanceCalculatorViewModel()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack(alignment: .topTrailing) {
                 Button {
                     viewModel.showingHelpView = true
@@ -48,45 +46,32 @@ struct ResistanceCalculatorView: View {
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 }
             }
-            .onAppear {
-                switch ATTrackingManager.trackingAuthorizationStatus {
-                case .notDetermined:
-                    ATTrackingManager.requestTrackingAuthorization { _ in
-                    }
-                case .restricted:
-                    break
-                case .denied:
-                    break
-                case .authorized:
-                    break
-                @unknown default:
-                    break
-                }
-            }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             .background(Color.white)
-            .navigationBarItems(
-                leading:
-                    Button(action: {
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
                         viewModel.showingPercentError.toggle()
-                    }, label: {
+                    } label: {
                         Image(viewModel.showingPercentError ?
                                 R.image.navigationPercent.name : R.image.navigationOhm.name)
                             .renderingMode(.template)
                             .foregroundColor(Color.black)
-                    }),
-                trailing:
-                    Button(action: {
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
                         viewModel.showing4BandResistance.toggle()
-                    }, label: {
+                    } label: {
                         Image(viewModel.showing4BandResistance ?
                                 R.image.navigationResistance4Color.name : R.image.navigationResistance5Color.name)
                             .renderingMode(.template)
                             .foregroundColor(Color.black)
-                    })
-            )
-            .background(Color.white)
-            .navigationBarTitle("抵抗計算機", displayMode: .inline)
+                    }
+                }
+            }
+            .navigationTitle("抵抗計算機")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
