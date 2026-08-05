@@ -4,246 +4,98 @@
 //
 
 import Foundation
-import Rswift
-import UIKit
+import RswiftResources
 
-/// This `R` struct is generated and contains references to static resources.
-struct R: Rswift.Validatable {
-  fileprivate static let applicationLocale = hostingBundle.preferredLocalizations.first.flatMap { Locale(identifier: $0) } ?? Locale.current
-  fileprivate static let hostingBundle = Bundle(for: R.Class.self)
-
-  /// Find first language and bundle for which the table exists
-  fileprivate static func localeBundle(tableName: String, preferredLanguages: [String]) -> (Foundation.Locale, Foundation.Bundle)? {
-    // Filter preferredLanguages to localizations, use first locale
-    var languages = preferredLanguages
-      .map { Locale(identifier: $0) }
-      .prefix(1)
-      .flatMap { locale -> [String] in
-        if hostingBundle.localizations.contains(locale.identifier) {
-          if let language = locale.languageCode, hostingBundle.localizations.contains(language) {
-            return [locale.identifier, language]
-          } else {
-            return [locale.identifier]
-          }
-        } else if let language = locale.languageCode, hostingBundle.localizations.contains(language) {
-          return [language]
-        } else {
-          return []
-        }
-      }
-
-    // If there's no languages, use development language as backstop
-    if languages.isEmpty {
-      if let developmentLocalization = hostingBundle.developmentLocalization {
-        languages = [developmentLocalization]
-      }
-    } else {
-      // Insert Base as second item (between locale identifier and languageCode)
-      languages.insert("Base", at: 1)
-
-      // Add development language as backstop
-      if let developmentLocalization = hostingBundle.developmentLocalization {
-        languages.append(developmentLocalization)
-      }
-    }
-
-    // Find first language for which table exists
-    // Note: key might not exist in chosen language (in that case, key will be shown)
-    for language in languages {
-      if let lproj = hostingBundle.url(forResource: language, withExtension: "lproj"),
-         let lbundle = Bundle(url: lproj)
-      {
-        let strings = lbundle.url(forResource: tableName, withExtension: "strings")
-        let stringsdict = lbundle.url(forResource: tableName, withExtension: "stringsdict")
-
-        if strings != nil || stringsdict != nil {
-          return (Locale(identifier: language), lbundle)
-        }
-      }
-    }
-
-    // If table is available in main bundle, don't look for localized resources
-    let strings = hostingBundle.url(forResource: tableName, withExtension: "strings", subdirectory: nil, localization: nil)
-    let stringsdict = hostingBundle.url(forResource: tableName, withExtension: "stringsdict", subdirectory: nil, localization: nil)
-
-    if strings != nil || stringsdict != nil {
-      return (applicationLocale, hostingBundle)
-    }
-
-    // If table is not found for requested languages, key will be shown
-    return nil
-  }
-
-  /// Load string from Info.plist file
-  fileprivate static func infoPlistString(path: [String], key: String) -> String? {
-    var dict = hostingBundle.infoDictionary
-    for step in path {
-      guard let obj = dict?[step] as? [String: Any] else { return nil }
-      dict = obj
-    }
-    return dict?[key] as? String
-  }
-
-  static func validate() throws {
-    try intern.validate()
-  }
-
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
-  struct color {
-    /// Color `gold`.
-    static let gold = Rswift.ColorResource(bundle: R.hostingBundle, name: "gold")
-
-    #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "gold", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func gold(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.gold, compatibleWith: traitCollection)
-    }
-    #endif
-
-    fileprivate init() {}
-  }
-
-  /// This `R.image` struct is generated, and contains static references to 12 images.
-  struct image {
-    /// Image `color-code-graph`.
-    static let colorCodeGraph = Rswift.ImageResource(bundle: R.hostingBundle, name: "color-code-graph")
-    /// Image `five-band-resistance`.
-    static let fiveBandResistance = Rswift.ImageResource(bundle: R.hostingBundle, name: "five-band-resistance")
-    /// Image `four-band-resistance`.
-    static let fourBandResistance = Rswift.ImageResource(bundle: R.hostingBundle, name: "four-band-resistance")
-    /// Image `navigation-ohm`.
-    static let navigationOhm = Rswift.ImageResource(bundle: R.hostingBundle, name: "navigation-ohm")
-    /// Image `navigation-percent`.
-    static let navigationPercent = Rswift.ImageResource(bundle: R.hostingBundle, name: "navigation-percent")
-    /// Image `navigation-resistance-4-color`.
-    static let navigationResistance4Color = Rswift.ImageResource(bundle: R.hostingBundle, name: "navigation-resistance-4-color")
-    /// Image `navigation-resistance-5-color`.
-    static let navigationResistance5Color = Rswift.ImageResource(bundle: R.hostingBundle, name: "navigation-resistance-5-color")
-    /// Image `resistance-4-color`.
-    static let resistance4Color = Rswift.ImageResource(bundle: R.hostingBundle, name: "resistance-4-color")
-    /// Image `resistance-5-color`.
-    static let resistance5Color = Rswift.ImageResource(bundle: R.hostingBundle, name: "resistance-5-color")
-    /// Image `resistance-help`.
-    static let resistanceHelp = Rswift.ImageResource(bundle: R.hostingBundle, name: "resistance-help")
-    /// Image `tabbar-other`.
-    static let tabbarOther = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-other")
-    /// Image `tabbar-resistance`.
-    static let tabbarResistance = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-resistance")
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "color-code-graph", bundle: ..., traitCollection: ...)`
-    static func colorCodeGraph(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.colorCodeGraph, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "five-band-resistance", bundle: ..., traitCollection: ...)`
-    static func fiveBandResistance(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.fiveBandResistance, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "four-band-resistance", bundle: ..., traitCollection: ...)`
-    static func fourBandResistance(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.fourBandResistance, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "navigation-ohm", bundle: ..., traitCollection: ...)`
-    static func navigationOhm(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.navigationOhm, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "navigation-percent", bundle: ..., traitCollection: ...)`
-    static func navigationPercent(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.navigationPercent, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "navigation-resistance-4-color", bundle: ..., traitCollection: ...)`
-    static func navigationResistance4Color(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.navigationResistance4Color, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "navigation-resistance-5-color", bundle: ..., traitCollection: ...)`
-    static func navigationResistance5Color(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.navigationResistance5Color, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "resistance-4-color", bundle: ..., traitCollection: ...)`
-    static func resistance4Color(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.resistance4Color, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "resistance-5-color", bundle: ..., traitCollection: ...)`
-    static func resistance5Color(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.resistance5Color, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "resistance-help", bundle: ..., traitCollection: ...)`
-    static func resistanceHelp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.resistanceHelp, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "tabbar-other", bundle: ..., traitCollection: ...)`
-    static func tabbarOther(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tabbarOther, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "tabbar-resistance", bundle: ..., traitCollection: ...)`
-    static func tabbarResistance(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tabbarResistance, compatibleWith: traitCollection)
-    }
-    #endif
-
-    fileprivate init() {}
-  }
-
-  /// This `R.info` struct is generated, and contains static references to 1 properties.
-  struct info {
-    struct uiApplicationSceneManifest {
-      static let _key = "UIApplicationSceneManifest"
-      static let uiApplicationSupportsMultipleScenes = true
-
-      fileprivate init() {}
-    }
-
-    fileprivate init() {}
-  }
-
-  fileprivate struct intern: Rswift.Validatable {
-    fileprivate static func validate() throws {
-      // There are no resources to validate
-    }
-
-    fileprivate init() {}
-  }
-
-  fileprivate class Class {}
-
-  fileprivate init() {}
-}
+private class BundleFinder {}
+let R = _R(bundle: Bundle(for: BundleFinder.self))
 
 struct _R {
-  fileprivate init() {}
+  let bundle: Foundation.Bundle
+  var color: color { .init(bundle: bundle) }
+  var image: image { .init(bundle: bundle) }
+  var info: info { .init(bundle: bundle) }
+
+  func color(bundle: Foundation.Bundle) -> color {
+    .init(bundle: bundle)
+  }
+  func image(bundle: Foundation.Bundle) -> image {
+    .init(bundle: bundle)
+  }
+  func info(bundle: Foundation.Bundle) -> info {
+    .init(bundle: bundle)
+  }
+  func validate() throws {
+
+  }
+
+  struct project {
+    let developmentRegion = "en"
+  }
+
+  /// This `_R.color` struct is generated, and contains static references to 1 colors.
+  struct color {
+    let bundle: Foundation.Bundle
+
+    /// Color `gold`.
+    var gold: RswiftResources.ColorResource { .init(name: "gold", path: [], bundle: bundle) }
+  }
+
+  /// This `_R.image` struct is generated, and contains static references to 12 images.
+  struct image {
+    let bundle: Foundation.Bundle
+
+    /// Image `color-code-graph`.
+    var colorCodeGraph: RswiftResources.ImageResource { .init(name: "color-code-graph", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `five-band-resistance`.
+    var fiveBandResistance: RswiftResources.ImageResource { .init(name: "five-band-resistance", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `four-band-resistance`.
+    var fourBandResistance: RswiftResources.ImageResource { .init(name: "four-band-resistance", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `navigation-ohm`.
+    var navigationOhm: RswiftResources.ImageResource { .init(name: "navigation-ohm", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `navigation-percent`.
+    var navigationPercent: RswiftResources.ImageResource { .init(name: "navigation-percent", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `navigation-resistance-4-color`.
+    var navigationResistance4Color: RswiftResources.ImageResource { .init(name: "navigation-resistance-4-color", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `navigation-resistance-5-color`.
+    var navigationResistance5Color: RswiftResources.ImageResource { .init(name: "navigation-resistance-5-color", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `resistance-4-color`.
+    var resistance4Color: RswiftResources.ImageResource { .init(name: "resistance-4-color", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `resistance-5-color`.
+    var resistance5Color: RswiftResources.ImageResource { .init(name: "resistance-5-color", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `resistance-help`.
+    var resistanceHelp: RswiftResources.ImageResource { .init(name: "resistance-help", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tabbar-other`.
+    var tabbarOther: RswiftResources.ImageResource { .init(name: "tabbar-other", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tabbar-resistance`.
+    var tabbarResistance: RswiftResources.ImageResource { .init(name: "tabbar-resistance", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+  }
+
+  /// This `_R.info` struct is generated, and contains static references to 1 properties.
+  struct info {
+    let bundle: Foundation.Bundle
+    var uiApplicationSceneManifest: uiApplicationSceneManifest { .init(bundle: bundle) }
+
+    func uiApplicationSceneManifest(bundle: Foundation.Bundle) -> uiApplicationSceneManifest {
+      .init(bundle: bundle)
+    }
+
+    struct uiApplicationSceneManifest {
+      let bundle: Foundation.Bundle
+
+      let uiApplicationSupportsMultipleScenes: Bool = true
+
+      var _key: String { bundle.infoDictionaryString(path: ["UIApplicationSceneManifest"], key: "_key") ?? "UIApplicationSceneManifest" }
+    }
+  }
 }
