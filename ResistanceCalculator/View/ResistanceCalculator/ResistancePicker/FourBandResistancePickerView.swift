@@ -7,8 +7,9 @@ struct FourBandResistancePickerView: View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
                 Picker("", selection: $fourBandResistance.firstBandIndex) {
-                    ForEach(0 ..< fourBandResistance.firstBands.count) {
-                        ResistancePickerCell(resistanceColor: fourBandResistance.firstBands[$0])
+                    ForEach(fourBandResistance.firstBands.indices, id: \.self) { index in
+                        ResistancePickerCell(resistanceColor: fourBandResistance.firstBands[index])
+                            .tag(index)
                     }
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
@@ -17,8 +18,9 @@ struct FourBandResistancePickerView: View {
                 .clipped()
 
                 Picker("", selection: $fourBandResistance.secondBandIndex) {
-                    ForEach(0 ..< fourBandResistance.secondBands.count) {
-                        ResistancePickerCell(resistanceColor: fourBandResistance.secondBands[$0])
+                    ForEach(fourBandResistance.secondBands.indices, id: \.self) { index in
+                        ResistancePickerCell(resistanceColor: fourBandResistance.secondBands[index])
+                            .tag(index)
                     }
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
@@ -27,8 +29,9 @@ struct FourBandResistancePickerView: View {
                 .clipped()
 
                 Picker("", selection: $fourBandResistance.thirdBandIndex) {
-                    ForEach(0 ..< fourBandResistance.thirdBands.count) {
-                        ResistancePickerCell(resistanceColor: fourBandResistance.thirdBands[$0])
+                    ForEach(fourBandResistance.thirdBands.indices, id: \.self) { index in
+                        ResistancePickerCell(resistanceColor: fourBandResistance.thirdBands[index])
+                            .tag(index)
                     }
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()
@@ -37,8 +40,9 @@ struct FourBandResistancePickerView: View {
                 .clipped()
 
                 Picker("", selection: $fourBandResistance.fourthBandIndex) {
-                    ForEach(0 ..< fourBandResistance.fourthBands.count) {
-                        ResistancePickerCell(resistanceColor: fourBandResistance.fourthBands[$0])
+                    ForEach(fourBandResistance.fourthBands.indices, id: \.self) { index in
+                        ResistancePickerCell(resistanceColor: fourBandResistance.fourthBands[index])
+                            .tag(index)
                     }
                 }.pickerStyle(WheelPickerStyle())
                 .labelsHidden()

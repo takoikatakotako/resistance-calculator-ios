@@ -14,6 +14,7 @@ struct _R {
   var color: color { .init(bundle: bundle) }
   var image: image { .init(bundle: bundle) }
   var info: info { .init(bundle: bundle) }
+  var file: file { .init(bundle: bundle) }
 
   func color(bundle: Foundation.Bundle) -> color {
     .init(bundle: bundle)
@@ -22,6 +23,9 @@ struct _R {
     .init(bundle: bundle)
   }
   func info(bundle: Foundation.Bundle) -> info {
+    .init(bundle: bundle)
+  }
+  func file(bundle: Foundation.Bundle) -> file {
     .init(bundle: bundle)
   }
   func validate() throws {
@@ -97,5 +101,13 @@ struct _R {
 
       var _key: String { bundle.infoDictionaryString(path: ["UIApplicationSceneManifest"], key: "_key") ?? "UIApplicationSceneManifest" }
     }
+  }
+
+  /// This `_R.file` struct is generated, and contains static references to 1 resource files.
+  struct file {
+    let bundle: Foundation.Bundle
+
+    /// Resource file `PrivacyInfo.xcprivacy`.
+    var privacyInfoXcprivacy: RswiftResources.FileResource { .init(name: "PrivacyInfo", pathExtension: "xcprivacy", bundle: bundle, locale: LocaleReference.none) }
   }
 }
