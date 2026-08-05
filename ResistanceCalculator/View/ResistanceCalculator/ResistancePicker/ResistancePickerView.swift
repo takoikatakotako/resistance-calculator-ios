@@ -16,7 +16,6 @@ struct ResistancePickerView: View {
     }
 }
 
-
 struct ResistancePickerView_Previews: PreviewProvider {
     struct PreviewWrapper: View {
         @State var isFourbandResistance = true
@@ -31,15 +30,14 @@ struct ResistancePickerView_Previews: PreviewProvider {
             )
          }
      }
-    
+
     static var previews: some View {
         PreviewWrapper()
     }
 }
 
-
-//struct ResistancePickerView_Previews: PreviewProvider {
+// struct ResistancePickerView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ResistancePickerView(isFourbandResistance: true)
 //    }
-//}
+// }

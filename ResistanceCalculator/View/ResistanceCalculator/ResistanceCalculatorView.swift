@@ -4,7 +4,7 @@ import AppTrackingTransparency
 
 struct ResistanceCalculatorView: View {
     @StateObject var viewModel = ResistanceCalculatorViewModel()
-    
+
     var body: some View {
         NavigationView {
             ZStack(alignment: .topTrailing) {
@@ -17,7 +17,7 @@ struct ResistanceCalculatorView: View {
                         .background(Color.white)
                         .padding()
                 }
-                
+
                 VStack {
                     Spacer()
                     ResistanceText(
@@ -26,26 +26,26 @@ struct ResistanceCalculatorView: View {
                         fourBandResistance: $viewModel.fourBandResistance,
                         fiveBandResistance: $viewModel.fiveBandResistance)
                         .padding(.top, 16)
-                    
+
                     RegistanceImage(
                         isFourbandResistance: viewModel.showing4BandResistance,
                         fourBandResistance: $viewModel.fourBandResistance,
                         fiveBandResistance: $viewModel.fiveBandResistance
                     )
-                    
+
                     ResistancePickerView(
                         isFourbandResistance: viewModel.showing4BandResistance,
                         fourBandResistance: $viewModel.fourBandResistance,
                         fiveBandResistance: $viewModel.fiveBandResistance
                     )
                     .frame(height: 160)
-                    
+
                     Spacer()
                 }
-                
+
                 if viewModel.showingHelpView {
                     ResistanceHelpView(showingResistanceHelpView: $viewModel.showingHelpView)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0,  maxHeight: .infinity)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 }
             }
             .onAppear {

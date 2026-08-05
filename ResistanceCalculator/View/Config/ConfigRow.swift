@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ConfigRow: View {
     let text: String
-    let action: () -> ()
+    let action: () -> Void
     var body: some View {
         Button(action: {
             action()

@@ -5,7 +5,7 @@ class FourBandResistance {
     var secondBandIndex: Int = 3
     var thirdBandIndex: Int = 4
     var fourthBandIndex: Int = 5
-    
+
     var resistance: Resistance? {
         guard let firstNumber = firstBandColorCode.number,
               let secondNumber = secondBandColorCode.number,
@@ -13,12 +13,12 @@ class FourBandResistance {
               let error = fourthBandColorCode.error else {
             return nil
         }
-              
+
         let resistance = (firstNumber * 10 + secondNumber) * multiplier
         let errorResistance = resistance * (error / 100)
         return Resistance(resistance: resistance, error: error, errorResistance: errorResistance)
     }
-    
+
     let firstBands = [
         ResistanceColor.black,
         ResistanceColor.brown,
@@ -29,7 +29,7 @@ class FourBandResistance {
         ResistanceColor.blue,
         ResistanceColor.purple,
         ResistanceColor.gray,
-        ResistanceColor.white,
+        ResistanceColor.white
     ]
     let secondBands = [
         ResistanceColor.black,
@@ -41,7 +41,7 @@ class FourBandResistance {
         ResistanceColor.blue,
         ResistanceColor.purple,
         ResistanceColor.gray,
-        ResistanceColor.white,
+        ResistanceColor.white
     ]
     let thirdBands = [
         ResistanceColor.black,
@@ -55,7 +55,7 @@ class FourBandResistance {
         ResistanceColor.gray,
         ResistanceColor.white,
         ResistanceColor.gold,
-        ResistanceColor.silver,
+        ResistanceColor.silver
     ]
     let fourthBands = [
         ResistanceColor.brown,
@@ -65,21 +65,21 @@ class FourBandResistance {
         ResistanceColor.blue,
         ResistanceColor.purple,
         ResistanceColor.gold,
-        ResistanceColor.silver,
+        ResistanceColor.silver
     ]
-    
+
     var firstBandColorCode: ResistanceColor {
         return firstBands[firstBandIndex]
     }
-    
+
     var secondBandColorCode: ResistanceColor {
         return secondBands[secondBandIndex]
     }
-    
+
     var thirdBandColorCode: ResistanceColor {
         return thirdBands[thirdBandIndex]
     }
-    
+
     var fourthBandColorCode: ResistanceColor {
         return fourthBands[fourthBandIndex]
     }

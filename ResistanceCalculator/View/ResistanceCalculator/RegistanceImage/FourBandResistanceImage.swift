@@ -32,7 +32,7 @@ struct FourBandResistanceImage_Previews: PreviewProvider {
             FourBandResistanceImage(fourBandResistance: $fourBandResistance)
          }
      }
-    
+
     static var previews: some View {
         PreviewWrapper()
             .previewLayout(.sizeThatFits)

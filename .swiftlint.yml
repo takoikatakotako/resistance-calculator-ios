@@ -1,0 +1,8 @@
+included:
+  - ResistanceCalculator
+  - ResistanceCalculatorTests
+  - ResistanceCalculatorUITests
+
+excluded:
+  - ResistanceCalculator/Generated
+  - mint
