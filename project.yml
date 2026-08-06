@@ -1,7 +1,7 @@
 name: ResistanceCalculator
 options:
   deploymentTarget:
-    iOS: 15.0
+    iOS: 16.0
 
 packages:
   R.swift:
@@ -33,7 +33,7 @@ targets:
   Local:
     type: application
     platform: iOS
-    deploymentTarget: "15.0"
+    deploymentTarget: "16.0"
     sources:
       - path: ResistanceCalculator
       # - path: Config/Local
@@ -60,7 +60,7 @@ targets:
   Production:
     type: application
     platform: iOS
-    deploymentTarget: "15.0"
+    deploymentTarget: "16.0"
     sources:
       - path: ResistanceCalculator
       # - path: Config/Production

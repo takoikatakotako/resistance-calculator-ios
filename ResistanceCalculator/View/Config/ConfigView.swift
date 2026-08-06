@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ConfigView: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ConfigRow(text: "作者のTwitterを開く") {
                     openUrl(urlString: twitterURL)
@@ -13,7 +13,8 @@ struct ConfigView: View {
                 }
             }
             .background(Color.orange)
-            .navigationBarTitle("設定", displayMode: .inline)
+            .navigationTitle("設定")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 
