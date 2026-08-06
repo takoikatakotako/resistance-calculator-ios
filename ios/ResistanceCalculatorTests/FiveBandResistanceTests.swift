@@ -13,7 +13,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 1つ目のバンドのResistanceColorのnumberはnilではない
     func testFirstBandValueNotNil() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         for resistanceColor in fiveBandResistance.firstBands {
             XCTAssertNotNil(resistanceColor.number)
         }
@@ -21,7 +21,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 2つ目のバンドのResistanceColorのnumberはnilではない
     func testSecondBandValueNotNil() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         for resistanceColor in fiveBandResistance.secondBands {
             XCTAssertNotNil(resistanceColor.number)
         }
@@ -29,7 +29,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 3つ目のバンドのResistanceColorのnumberはnilではない
     func testThirdBandValueNotNil() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         for resistanceColor in fiveBandResistance.thirdBands {
             XCTAssertNotNil(resistanceColor.number)
         }
@@ -37,7 +37,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 4つ目のバンドのResistanceColorのmultiplierはnilではない
     func testFourthBandValueNotNil() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         for resistanceColor in fiveBandResistance.fourthBands {
             XCTAssertNotNil(resistanceColor.multiplier)
         }
@@ -45,7 +45,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 5つ目のバンドのResistanceColorのerrorはnilではない
     func testFiveBandValueNotNil() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         for resistanceColor in fiveBandResistance.fifthBands {
             XCTAssertNotNil(resistanceColor.error)
         }
@@ -53,7 +53,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 1本目のバンドのインデックスと色が一致していることを確認
     func testFirstBandIndexAndColorPair() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         fiveBandResistance.firstBandIndex = 0
         XCTAssertEqual(fiveBandResistance.firstBandColorCode, ResistanceColor.black)
         fiveBandResistance.firstBandIndex = 1
@@ -81,7 +81,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 2本目のバンドのインデックスと色が一致していることを確認
     func testSecondBandIndexAndColorPair() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         fiveBandResistance.firstBandIndex = 0
         XCTAssertEqual(fiveBandResistance.firstBandColorCode, ResistanceColor.black)
         fiveBandResistance.firstBandIndex = 1
@@ -109,7 +109,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 3本目のバンドのインデックスと色が一致していることを確認
     func testThirdBandIndexAndColorPair() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         fiveBandResistance.thirdBandIndex = 0
         XCTAssertEqual(fiveBandResistance.thirdBandColorCode, ResistanceColor.black)
         fiveBandResistance.thirdBandIndex = 1
@@ -137,7 +137,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 4本目のバンドのインデックスと色が一致していることを確認
     func testFourthBandIndexAndColorPair() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         fiveBandResistance.fourthBandIndex = 0
         XCTAssertEqual(fiveBandResistance.fourBandColorCode, ResistanceColor.black)
         fiveBandResistance.fourthBandIndex = 1
@@ -166,7 +166,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 4本目のバンドのインデックスと色が一致していることを確認
     func testFifthBandIndexAndColorPair() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         fiveBandResistance.fifthBandIndex = 0
         XCTAssertEqual(fiveBandResistance.fifthBandColorCode, ResistanceColor.brown)
         fiveBandResistance.fifthBandIndex = 1
@@ -189,7 +189,7 @@ class FiveBandResistanceTests: XCTestCase {
 
     // 茶黒黒黒茶
     func testBrownBlackBlackBlackBrown() throws {
-        let fiveBandResistance = FiveBandResistance()
+        var fiveBandResistance = FiveBandResistance()
         fiveBandResistance.firstBandIndex = 1
         fiveBandResistance.secondBandIndex = 0
         fiveBandResistance.thirdBandIndex = 0

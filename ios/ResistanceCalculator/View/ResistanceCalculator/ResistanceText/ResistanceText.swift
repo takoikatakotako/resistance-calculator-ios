@@ -19,13 +19,16 @@ struct ResistanceText: View {
         VStack {
             Text(resistance?.resistanceString ?? "Error")
                 .font(Font.system(size: 48).bold())
+                .accessibilityIdentifier("resistanceValueText")
 
             if isPercentError {
                 Text("± \(resistance?.errorString.description ?? "Error")")
                     .font(Font.system(size: 48).bold())
+                    .accessibilityIdentifier("resistanceErrorText")
             } else {
                 Text("± \(resistance?.errorResistanceString ?? "Error")")
                     .font(Font.system(size: 48).bold())
+                    .accessibilityIdentifier("resistanceErrorText")
             }
         }
     }

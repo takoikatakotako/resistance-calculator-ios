@@ -13,7 +13,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // 1つ目のバンドのResistanceColorのnumberはnilではない
     func testFirstBandValueNotNil() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         for resistanceColor in fourBandResistance.firstBands {
             XCTAssertNotNil(resistanceColor.number)
         }
@@ -21,7 +21,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // 2つ目のバンドのResistanceColorのnumberはnilではない
     func testSecondBandValueNotNil() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         for resistanceColor in fourBandResistance.secondBands {
             XCTAssertNotNil(resistanceColor.number)
         }
@@ -29,7 +29,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // 3つ目のバンドのResistanceColorのmultiplierはnilではない
     func testThirdBandValueNotNil() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         for resistanceColor in fourBandResistance.thirdBands {
             XCTAssertNotNil(resistanceColor.multiplier)
         }
@@ -37,7 +37,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // 4つ目のバンドのResistanceColorのerrorはnilではない
     func testFourthBandValueNotNil() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         for resistanceColor in fourBandResistance.fourthBands {
             XCTAssertNotNil(resistanceColor.error)
         }
@@ -45,7 +45,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // インデックスと色が一致していることを確認
     func testFirstBandIndexAndColorPair() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         fourBandResistance.firstBandIndex = 0
         XCTAssertEqual(fourBandResistance.firstBandColorCode, ResistanceColor.black)
         fourBandResistance.firstBandIndex = 1
@@ -73,7 +73,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // インデックスと色が一致していることを確認
     func testSecondBandIndexAndColorPair() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         fourBandResistance.secondBandIndex = 0
         XCTAssertEqual(fourBandResistance.secondBandColorCode, ResistanceColor.black)
         fourBandResistance.secondBandIndex = 1
@@ -101,7 +101,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // インデックスと色が一致していることを確認
     func testThirdBandIndexAndColorPair() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         fourBandResistance.thirdBandIndex = 0
         XCTAssertEqual(fourBandResistance.thirdBandColorCode, ResistanceColor.black)
         fourBandResistance.thirdBandIndex = 1
@@ -132,7 +132,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // インデックスと色が一致していることを確認
     func testFourthBandIndexAndColorPair() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         fourBandResistance.fourthBandIndex = 0
         XCTAssertEqual(fourBandResistance.fourthBandColorCode, ResistanceColor.brown)
         fourBandResistance.fourthBandIndex = 1
@@ -155,7 +155,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // 黒黒黒茶
     func testBlackBlackBlackBrown() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         fourBandResistance.firstBandIndex = 0
         fourBandResistance.secondBandIndex = 0
         fourBandResistance.thirdBandIndex = 0
@@ -173,7 +173,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // 茶黒黒金
     func testBrownBlackBlackGold() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         fourBandResistance.firstBandIndex = 1
         fourBandResistance.secondBandIndex = 0
         fourBandResistance.thirdBandIndex = 0
@@ -191,7 +191,7 @@ class FourBandResistanceTests: XCTestCase {
 
     // 茶赤黒金
     func testBrownRedBlackGold() throws {
-        let fourBandResistance = FourBandResistance()
+        var fourBandResistance = FourBandResistance()
         fourBandResistance.firstBandIndex = 1
         fourBandResistance.secondBandIndex = 2
         fourBandResistance.thirdBandIndex = 0

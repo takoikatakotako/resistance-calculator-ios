@@ -1,6 +1,9 @@
 import Foundation
 
-class FiveBandResistance {
+// SwiftUI の差分検出が効くよう値型にしている。
+// 参照型にすると @Binding で同じインスタンスを受け取る子View が
+// 「変化なし」と判定されて再描画されない。
+struct FiveBandResistance {
     var firstBandIndex: Int = 2
     var secondBandIndex: Int = 3
     var thirdBandIndex: Int = 4

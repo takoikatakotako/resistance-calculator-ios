@@ -58,6 +58,7 @@ struct ResistanceCalculatorView: View {
                             .renderingMode(.template)
                             .foregroundColor(Color.black)
                     }
+                    .accessibilityIdentifier("togglePercentErrorButton")
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -68,6 +69,7 @@ struct ResistanceCalculatorView: View {
                             .renderingMode(.template)
                             .foregroundColor(Color.black)
                     }
+                    .accessibilityIdentifier("toggleBandCountButton")
                 }
             }
             .navigationTitle("抵抗計算機")

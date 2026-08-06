@@ -22,6 +22,9 @@ schemes:
         - name: ResistanceCalculatorTests
           parallelizable: true
           randomExecutionOrder: true
+        - name: ResistanceCalculatorUITests
+          parallelizable: false
+          randomExecutionOrder: false
   Production:
     build:
       targets:
