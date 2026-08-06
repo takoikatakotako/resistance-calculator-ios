@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct ResistanceHelpView: View {
-    @Binding var showingResistanceHelpView: Bool
+struct ResistanceHelpScreen: View {
+    @Binding var showingResistanceHelpScreen: Bool
     var body: some View {
         VStack {
             Button {
-                showingResistanceHelpView = false
+                showingResistanceHelpScreen = false
             } label: {
                 Image(.colorCodeGraph)
                     .resizable()
@@ -18,10 +18,7 @@ struct ResistanceHelpView: View {
     }
 }
 
-// struct ResistanceHelpView_Previews: PreviewProvider {
-//
-//
-//    static var previews: some View {
-//        ResistanceHelpView(showingResistanceHelpView: <#Binding<Bool>#>)
-//    }
-// }
+#Preview {
+    @Previewable @State var showingResistanceHelpScreen = true
+    ResistanceHelpScreen(showingResistanceHelpScreen: $showingResistanceHelpScreen)
+}

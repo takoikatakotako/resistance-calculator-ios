@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ResistanceCalculatorView: View {
+struct ResistanceCalculatorScreen: View {
     @StateObject var viewModel = ResistanceCalculatorViewModel()
 
     var body: some View {
@@ -25,7 +25,7 @@ struct ResistanceCalculatorView: View {
                         fiveBandResistance: $viewModel.fiveBandResistance)
                         .padding(.top, 16)
 
-                    RegistanceImage(
+                    ResistanceImage(
                         isFourbandResistance: viewModel.showing4BandResistance,
                         fourBandResistance: $viewModel.fourBandResistance,
                         fiveBandResistance: $viewModel.fiveBandResistance
@@ -42,7 +42,7 @@ struct ResistanceCalculatorView: View {
                 }
 
                 if viewModel.showingHelpView {
-                    ResistanceHelpView(showingResistanceHelpView: $viewModel.showingHelpView)
+                    ResistanceHelpScreen(showingResistanceHelpScreen: $viewModel.showingHelpView)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 }
             }
@@ -78,8 +78,6 @@ struct ResistanceCalculatorView: View {
     }
 }
 
-struct ResistanceCalculatorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResistanceCalculatorView()
-    }
+#Preview {
+    ResistanceCalculatorScreen()
 }

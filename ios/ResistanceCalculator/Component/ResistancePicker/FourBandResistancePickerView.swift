@@ -54,15 +54,7 @@ struct FourBandResistancePickerView: View {
     }
 }
 
-struct FourBandResistancePickerView_Previews: PreviewProvider {
-    struct PreviewWrapper: View {
-        @State var fourBandResistance = FourBandResistance()
-         var body: some View {
-            FourBandResistancePickerView(fourBandResistance: $fourBandResistance)
-         }
-     }
-
-    static var previews: some View {
-        PreviewWrapper()
-    }
+#Preview {
+    @Previewable @State var fourBandResistance = FourBandResistance()
+    FourBandResistancePickerView(fourBandResistance: $fourBandResistance)
 }

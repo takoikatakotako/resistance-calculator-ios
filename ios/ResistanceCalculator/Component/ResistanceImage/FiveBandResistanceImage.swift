@@ -26,18 +26,7 @@ struct FiveBandResistanceImage: View {
     }
 }
 
-struct FiveBandResistanceImage_Previews: PreviewProvider {
-    struct PreviewWrapper: View {
-        @State var fiveBandResistance = FiveBandResistance()
-
-         var body: some View {
-            FiveBandResistanceImage(fiveBandResistance: $fiveBandResistance)
-         }
-     }
-
-    static var previews: some View {
-        PreviewWrapper()
-            .previewLayout(.sizeThatFits)
-
-    }
+#Preview {
+    @Previewable @State var fiveBandResistance = FiveBandResistance()
+    FiveBandResistanceImage(fiveBandResistance: $fiveBandResistance)
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ConfigView: View {
+struct ConfigScreen: View {
     var body: some View {
         NavigationStack {
             List {
@@ -25,8 +25,6 @@ struct ConfigView: View {
     }
 }
 
-struct ConfigView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConfigView()
-    }
+#Preview {
+    ConfigScreen()
 }

@@ -15,10 +15,6 @@ struct ConfigRow: View {
     }
 }
 
-struct ConfigRow_Previews: PreviewProvider {
-    static var previews: some View {
-        ConfigRow(text: "Hello", action: {})
-            .frame(width: UIScreen.main.bounds.size.width)
-            .previewLayout(.sizeThatFits)
-    }
+#Preview {
+    ConfigRow(text: "Hello", action: {})
 }

@@ -34,24 +34,13 @@ struct ResistanceText: View {
     }
 }
 
-struct ResistanceText_Previews: PreviewProvider {
-    struct PreviewWrapper: View {
-        @State var isFourbandResistance = true
-        @State var isPercentError: Bool = true
-        @State var fourBandResistance = FourBandResistance()
-        @State var fiveBandResistance = FiveBandResistance()
-
-        var body: some View {
-            ResistanceText(
-                isFourbandResistance: isFourbandResistance,
-                isPercentError: isPercentError,
-                fourBandResistance: $fourBandResistance,
-                fiveBandResistance: $fiveBandResistance
-            )
-        }
-    }
-
-    static var previews: some View {
-        PreviewWrapper()
-    }
+#Preview {
+    @Previewable @State var fourBandResistance = FourBandResistance()
+    @Previewable @State var fiveBandResistance = FiveBandResistance()
+    ResistanceText(
+        isFourbandResistance: true,
+        isPercentError: true,
+        fourBandResistance: $fourBandResistance,
+        fiveBandResistance: $fiveBandResistance
+    )
 }

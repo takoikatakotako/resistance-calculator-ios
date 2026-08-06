@@ -29,17 +29,7 @@ struct FourBandResistanceImage: View {
     }
 }
 
-struct FourBandResistanceImage_Previews: PreviewProvider {
-    struct PreviewWrapper: View {
-        @State var fourBandResistance = FourBandResistance()
-
-         var body: some View {
-            FourBandResistanceImage(fourBandResistance: $fourBandResistance)
-         }
-     }
-
-    static var previews: some View {
-        PreviewWrapper()
-            .previewLayout(.sizeThatFits)
-    }
+#Preview {
+    @Previewable @State var fourBandResistance = FourBandResistance()
+    FourBandResistanceImage(fourBandResistance: $fourBandResistance)
 }

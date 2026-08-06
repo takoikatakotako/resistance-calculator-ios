@@ -10,8 +10,6 @@ struct ResistancePickerCell: View {
     }
 }
 
-struct ResistancePickerCell_Previews: PreviewProvider {
-    static var previews: some View {
-        ResistancePickerCell(resistanceColor: ResistanceColor.brown)
-    }
+#Preview {
+    ResistancePickerCell(resistanceColor: ResistanceColor.brown)
 }

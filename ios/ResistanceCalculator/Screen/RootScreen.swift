@@ -1,16 +1,16 @@
 import SwiftUI
 
-struct ContentView: View {
+struct RootScreen: View {
     var body: some View {
         TabView {
-            ResistanceCalculatorView()
+            ResistanceCalculatorScreen()
                 .tabItem {
                     Image(.tabbarResistance)
                         .renderingMode(.template)
                         .foregroundColor(Color.gray)
-                    Text("Registance")
+                    Text("Resistance")
             }
-            ConfigView()
+            ConfigScreen()
                 .tabItem {
                     Image(.tabbarOther)
                         .renderingMode(.template)
@@ -22,8 +22,6 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    RootScreen()
 }

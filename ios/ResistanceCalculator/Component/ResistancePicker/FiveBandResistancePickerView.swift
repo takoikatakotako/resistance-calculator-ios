@@ -65,15 +65,7 @@ struct FiveBandResistancePickerView: View {
     }
 }
 
-struct FiveBandResistancePickerView_Previews: PreviewProvider {
-    struct PreviewWrapper: View {
-        @State var fiveBandResistance = FiveBandResistance()
-         var body: some View {
-            FiveBandResistancePickerView(fiveBandResistance: $fiveBandResistance)
-         }
-     }
-
-    static var previews: some View {
-        PreviewWrapper()
-    }
+#Preview {
+    @Previewable @State var fiveBandResistance = FiveBandResistance()
+    FiveBandResistancePickerView(fiveBandResistance: $fiveBandResistance)
 }
