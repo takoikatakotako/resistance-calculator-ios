@@ -3,11 +3,6 @@ options:
   deploymentTarget:
     iOS: 16.0
 
-packages:
-  R.swift:
-    url: https://github.com/mac-cain13/R.swift
-    from: 7.8.0
-
 schemes:
   Local:
     build:
@@ -50,16 +45,6 @@ targets:
         CURRENT_PROJECT_VERSION: 1
         TARGETED_DEVICE_FAMILY: 1
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Local
-    dependencies:
-      - package: R.swift
-        product: RswiftLibrary
-    preBuildScripts:
-      - script: ./Scripts/BuildPhases/rswift.sh
-        name: R.swift
-        inputFiles:
-          - $TEMP_DIR/rswift-lastrun
-        outputFiles:
-          - $SRCROOT/ResistanceCalculator/Generated/R.generated.swift
   Production:
     type: application
     platform: iOS
@@ -67,16 +52,6 @@ targets:
     sources:
       - path: ResistanceCalculator
       # - path: Config/Production
-    dependencies:
-      - package: R.swift
-        product: RswiftLibrary
-    preBuildScripts:
-      - script: ./Scripts/BuildPhases/rswift.sh
-        name: R.swift
-        inputFiles:
-          - $TEMP_DIR/rswift-lastrun
-        outputFiles:
-          - $SRCROOT/ResistanceCalculator/Generated/R.generated.swift
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: resistanceCalc.biz.sciencetools

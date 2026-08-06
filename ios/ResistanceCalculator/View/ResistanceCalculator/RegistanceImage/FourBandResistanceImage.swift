@@ -12,7 +12,7 @@ struct FourBandResistanceImage: View {
                 band(fourBandResistance.fourthBandColorCode, identifier: "resistanceImageBand4")
             }
             .frame(height: 160)
-            Image(R.image.fourBandResistance.name)
+            Image(.fourBandResistance)
                 .resizable()
                 .frame(width: 320, height: 160, alignment: .center)
                 .scaledToFit()

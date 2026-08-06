@@ -9,7 +9,7 @@ struct ResistanceCalculatorView: View {
                 Button {
                     viewModel.showingHelpView = true
                 } label: {
-                    Image(R.image.resistanceHelp.name)
+                    Image(.resistanceHelp)
                         .resizable()
                         .frame(width: 28, height: 28)
                         .background(Color.white)
@@ -54,7 +54,7 @@ struct ResistanceCalculatorView: View {
                         viewModel.showingPercentError.toggle()
                     } label: {
                         Image(viewModel.showingPercentError ?
-                                R.image.navigationPercent.name : R.image.navigationOhm.name)
+                                .navigationPercent : .navigationOhm)
                             .renderingMode(.template)
                             .foregroundColor(Color.black)
                     }
@@ -65,7 +65,7 @@ struct ResistanceCalculatorView: View {
                         viewModel.showing4BandResistance.toggle()
                     } label: {
                         Image(viewModel.showing4BandResistance ?
-                                R.image.navigationResistance4Color.name : R.image.navigationResistance5Color.name)
+                                .navigationResistance4 : .navigationResistance5)
                             .renderingMode(.template)
                             .foregroundColor(Color.black)
                     }

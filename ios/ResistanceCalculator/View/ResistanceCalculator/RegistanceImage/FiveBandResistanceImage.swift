@@ -18,7 +18,7 @@ struct FiveBandResistanceImage: View {
                     .frame(width: 32)
             }
             .frame(height: 160)
-            Image(R.image.fiveBandResistance.name)
+            Image(.fiveBandResistance)
                 .resizable()
                 .frame(width: 320, height: 160, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .scaledToFit()

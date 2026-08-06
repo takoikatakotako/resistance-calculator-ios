@@ -7,7 +7,7 @@ struct ResistanceHelpView: View {
             Button {
                 showingResistanceHelpView = false
             } label: {
-                Image(R.image.colorCodeGraph.name)
+                Image(.colorCodeGraph)
                     .resizable()
                     .scaledToFit()
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)

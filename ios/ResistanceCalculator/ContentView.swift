@@ -5,14 +5,14 @@ struct ContentView: View {
         TabView {
             ResistanceCalculatorView()
                 .tabItem {
-                    Image(R.image.tabbarResistance.name)
+                    Image(.tabbarResistance)
                         .renderingMode(.template)
                         .foregroundColor(Color.gray)
                     Text("Registance")
             }
             ConfigView()
                 .tabItem {
-                    Image(R.image.tabbarOther.name)
+                    Image(.tabbarOther)
                         .renderingMode(.template)
                         .foregroundColor(Color.gray)
                     Text("Config")
