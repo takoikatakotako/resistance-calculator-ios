@@ -1,14 +1,24 @@
-name: CI
+name: iOS CI
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'ios/**'
+      - '.github/workflows/ios-ci.yml'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'ios/**'
+      - '.github/workflows/ios-ci.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: ios
 
 jobs:
   build:
@@ -30,11 +40,12 @@ jobs:
         run: xcodebuild -version
 
       # mint bootstrap はソースビルドで10分近くかかるのでキャッシュする
+      # cache アクションは working-directory の影響を受けないのでルート基準で書く
       - name: Cache Mint packages
         uses: actions/cache@v4
         with:
           path: mint
-          key: ${{ runner.os }}-mint-${{ hashFiles('Mintfile') }}
+          key: ${{ runner.os }}-mint-${{ hashFiles('ios/Mintfile') }}
           restore-keys: |
             ${{ runner.os }}-mint-
 

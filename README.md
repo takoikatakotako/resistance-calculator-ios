@@ -2,26 +2,41 @@
 
 抵抗のカラーコードから抵抗値を計算する iOS アプリです。
 
-## セットアップ
+## ディレクトリ構成
+
+```
+.
+├── ios/        iOS アプリ（Swift / SwiftUI）
+└── .github/    GitHub Actions
+```
+
+Android 版を追加する場合は `android/` を並べる想定です。
+
+## iOS
+
+### セットアップ
 
 Xcode プロジェクトは XcodeGen で生成するため、リポジトリにはコミットされていません。
-CLI ツールは Mint（`Mintfile`）で管理しています。
+CLI ツールは Mint（`ios/Mintfile`）で管理しています。
 
 ```sh
 brew install mint
+cd ios
 mint bootstrap          # 初回はソースビルドのため10分程度かかります
 mint run xcodegen generate
 open ResistanceCalculator.xcodeproj
 ```
 
-## Lint
+以降のコマンドはすべて `ios/` で実行します。
+
+### Lint
 
 ```sh
 mint run swiftlint lint --strict
 mint run swiftlint --fix     # 自動修正
 ```
 
-## テスト
+### テスト
 
 ```sh
 xcodebuild test \
@@ -31,7 +46,7 @@ xcodebuild test \
   CODE_SIGNING_ALLOWED=NO
 ```
 
-## ビルド
+### ビルド
 
 ```sh
 xcodebuild build \
@@ -42,7 +57,7 @@ xcodebuild build \
   CODE_SIGNING_ALLOWED=NO
 ```
 
-## スキーム
+### スキーム
 
 | スキーム | Bundle ID | 用途 |
 |---|---|---|
