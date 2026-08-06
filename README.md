@@ -1,12 +1,15 @@
 # 抵抗計算機 (ResistanceCalculator)
 
-抵抗のカラーコードから抵抗値を計算する iOS アプリです。
+抵抗のカラーコードから抵抗値を計算するアプリです。
+
+[App Store でダウンロード](https://apps.apple.com/jp/app/id1034171119)
 
 ## ディレクトリ構成
 
 ```
 .
 ├── ios/        iOS アプリ（Swift / SwiftUI）
+├── lp/         ランディングページ・プライバシーポリシー・利用規約
 └── .github/    GitHub Actions
 ```
 
@@ -46,6 +49,8 @@ xcodebuild test \
   CODE_SIGNING_ALLOWED=NO
 ```
 
+ユニットテストに加えて UI テストも `Local` スキームに含まれています。
+
 ### ビルド
 
 ```sh
@@ -63,3 +68,21 @@ xcodebuild build \
 |---|---|---|
 | `Local` | `com.swiswiswift.ResistanceCalculator` | 開発用（テスト実行対象） |
 | `Production` | `resistanceCalc.biz.sciencetools` | App Store 配信用 |
+
+### 対応 OS
+
+iOS 17.0 以上 / iPhone
+
+## ランディングページ
+
+`lp/` 配下の静的 HTML です。ビルド不要で、ブラウザで直接開けます。
+
+```sh
+open lp/index.html
+```
+
+| ファイル | 内容 |
+|---|---|
+| `index.html` | トップページ |
+| `privacy.html` | プライバシーポリシー |
+| `terms.html` | 利用規約 |

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>抵抗計算機 - カラーコードから抵抗値を読み取るiOSアプリ</title>
+  <meta name="description" content="抵抗計算機は、抵抗器のカラーコードから抵抗値と誤差を計算するiOSアプリ。色帯を回して合わせるだけ、4本帯・5本帯の両方に対応。" />
+
+  <!-- Open Graph / SNS -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="抵抗計算機" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:title" content="抵抗計算機 - カラーコードから抵抗値を読み取るiOSアプリ" />
+  <meta property="og:description" content="色帯を回して合わせるだけ。抵抗値と誤差がすぐ読める。4本帯・5本帯対応。" />
+  <meta property="og:image" content="https://takoikatakotako.github.io/resistance-calculator-ios/assets/icon.png" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="抵抗計算機 アイコン" />
+  <meta property="og:url" content="https://takoikatakotako.github.io/resistance-calculator-ios/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="抵抗計算機 - カラーコードから抵抗値を読み取るiOSアプリ" />
+  <meta name="twitter:description" content="色帯を回して合わせるだけ。抵抗値と誤差がすぐ読める。4本帯・5本帯対応。" />
+  <meta name="twitter:image" content="https://takoikatakotako.github.io/resistance-calculator-ios/assets/icon.png" />
+
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <img src="assets/icon.png" alt="抵抗計算機 アイコン" />
+      <span>抵抗計算機</span>
+    </a>
+    <nav class="site-nav">
+      <a href="#features">特徴</a>
+      <a href="#how">使い方</a>
+      <a href="#colorcode">カラーコード</a>
+      <a class="nav-cta" href="#download">ダウンロード</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">RESISTOR COLOR CODE</p>
+        <h1>カラーコードを、<br />回すだけで<span class="accent">読める</span>。</h1>
+        <p class="lead">
+          抵抗器の色帯を選ぶだけで、抵抗値と誤差をその場で計算。<br />
+          4本帯・5本帯の両方に対応した、シンプルな抵抗計算機です。
+        </p>
+        <div class="cta-row" id="download">
+          <a class="appstore-badge" href="https://apps.apple.com/jp/app/id1034171119" aria-label="App Store でダウンロード">
+            <img src="assets/app-store-badge.svg" alt="App Store からダウンロード" />
+          </a>
+          <a class="ghost-btn" href="https://github.com/takoikatakotako/resistance-calculator-ios" target="_blank" rel="noopener">
+            GitHub で見る
+          </a>
+        </div>
+        <p class="requirement">iOS 14.0 以上 / iPhone 対応 ・ 無料</p>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-glow"></div>
+        <img src="assets/screenshot.png" alt="抵抗計算機の画面。カラーコードから230KΩと表示されている" />
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+      <h2 class="section-title">抵抗計算機の特徴</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>色を選ぶだけ</h3>
+          <p>ピッカーを回して帯の色を合わせるだけ。抵抗値と誤差がその場で切り替わります。数値の入力は必要ありません。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🔢</div>
+          <h3>4本帯・5本帯に対応</h3>
+          <p>ボタンひとつで4本帯と5本帯を切り替え。精密抵抗の読み取りにも使えます。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📐</div>
+          <h3>誤差は％でもΩでも</h3>
+          <p>許容差を百分率で見るか、実際の抵抗値の幅で見るかを切り替え可能。設計中でも実測中でも使えます。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="how">
+      <h2 class="section-title">3ステップで読み取り完了</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <h3>帯の本数を選ぶ</h3>
+          <p>右上のボタンで4本帯・5本帯を切り替えます。手元の抵抗器に合わせて選んでください。</p>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <h3>色を合わせる</h3>
+          <p>下のピッカーを回して、抵抗器に印刷された帯の色を左から順に選びます。</p>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <h3>抵抗値を読む</h3>
+          <p>選んだ瞬間に抵抗値と誤差を表示。イラストの帯も同じ色に変わるので、見比べて確認できます。</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Color code -->
+    <section id="colorcode" class="colorcode">
+      <h2 class="section-title">カラーコード早見表</h2>
+      <p class="colorcode-lead">アプリ内でもいつでも確認できます。</p>
+      <div class="table-wrap">
+        <table class="code-table">
+          <thead>
+            <tr><th>色</th><th>数値</th><th>乗数</th><th>許容差</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="chip" style="background:#000"></span>黒</td><td>0</td><td>×1</td><td>—</td></tr>
+            <tr><td><span class="chip" style="background:#8b5a2b"></span>茶</td><td>1</td><td>×10</td><td>±1%</td></tr>
+            <tr><td><span class="chip" style="background:#e23b2e"></span>赤</td><td>2</td><td>×100</td><td>±2%</td></tr>
+            <tr><td><span class="chip" style="background:#f08020"></span>橙</td><td>3</td><td>×1k</td><td>±0.05%</td></tr>
+            <tr><td><span class="chip" style="background:#f5e000"></span>黄</td><td>4</td><td>×10k</td><td>—</td></tr>
+            <tr><td><span class="chip" style="background:#3aa757"></span>緑</td><td>5</td><td>×100k</td><td>±0.5%</td></tr>
+            <tr><td><span class="chip" style="background:#3b6fd4"></span>青</td><td>6</td><td>×1M</td><td>±0.25%</td></tr>
+            <tr><td><span class="chip" style="background:#8b3fa8"></span>紫</td><td>7</td><td>×10M</td><td>±0.1%</td></tr>
+            <tr><td><span class="chip" style="background:#9e9e9e"></span>灰</td><td>8</td><td>×100M</td><td>—</td></tr>
+            <tr><td><span class="chip chip-bordered" style="background:#fff"></span>白</td><td>9</td><td>×1G</td><td>—</td></tr>
+            <tr><td><span class="chip" style="background:#c9a227"></span>金</td><td>—</td><td>×0.1</td><td>±5%</td></tr>
+            <tr><td><span class="chip" style="background:#b8b8c0"></span>銀</td><td>—</td><td>×0.01</td><td>±10%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <img class="final-icon" src="assets/icon.png" alt="抵抗計算機 アイコン" />
+      <h2>手元の抵抗器、さっそく読んでみませんか。</h2>
+      <a class="appstore-badge large" href="https://apps.apple.com/jp/app/id1034171119" aria-label="App Store でダウンロード">
+        <img src="assets/app-store-badge.svg" alt="App Store からダウンロード" />
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/icon.png" alt="抵抗計算機 アイコン" />
+        <span>抵抗計算機</span>
+      </div>
+      <nav class="footer-links">
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+        <a href="https://github.com/takoikatakotako/resistance-calculator-ios" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://docs.google.com/forms/d/1UjPjJy1MdEe6vkNVF0V7gncF78vQFjDiCWMl8Q1PW7I" target="_blank" rel="noopener">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="copyright">© 2026 takoikatakotako</p>
+  </footer>
+</body>
+</html>
