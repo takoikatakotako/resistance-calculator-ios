@@ -8,6 +8,13 @@ struct ResistanceColor: Equatable {
     let multiplier: Double?
     let error: Double?
 
+    // カラーコード表の並び順。表は静的な画像ではなくこの定義から組み立てるため、
+    // 値を変更しても表と実際の計算がずれることはない。
+    static let all: [ResistanceColor] = [
+        black, brown, red, orange, yellow, green,
+        blue, purple, gray, white, gold, silver
+    ]
+
     static let black = ResistanceColor(
         text: "黒",
         textColor: Color(UIColor.white),
@@ -88,10 +95,12 @@ struct ResistanceColor: Equatable {
         multiplier: 1e9,
         error: nil)
 
+    // 黄と同じ UIColor.yellow だったため見分けられなかった。
+    // ランディングページの早見表と同じ #C9A227 に合わせている。
     static let gold = ResistanceColor(
         text: "金",
         textColor: Color(UIColor.black),
-        color: Color(UIColor.yellow),
+        color: Color(red: 0.788, green: 0.635, blue: 0.153),
         number: nil,
         multiplier: 0.1,
         error: 5)

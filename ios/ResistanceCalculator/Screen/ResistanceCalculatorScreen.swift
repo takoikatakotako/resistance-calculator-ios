@@ -15,6 +15,7 @@ struct ResistanceCalculatorScreen: View {
                         .background(Color.white)
                         .padding()
                 }
+                .accessibilityIdentifier("openColorCodeButton")
 
                 VStack {
                     Spacer()

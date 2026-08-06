@@ -86,6 +86,33 @@ class ResistanceCalculatorUITests: XCTestCase {
         XCTAssertEqual(resistanceValue, "3.4 MΩ", "5本帯モードで抵抗値が更新されていない")
     }
 
+    // カラーコード表を開閉できる
+    func testOpenAndCloseColorCodeTable() throws {
+        XCTAssertTrue(app.buttons["openColorCodeButton"].waitForExistence(timeout: 10))
+        XCTAssertFalse(app.buttons["closeColorCodeButton"].exists)
+
+        app.buttons["openColorCodeButton"].tap()
+        XCTAssertTrue(app.buttons["closeColorCodeButton"].waitForExistence(timeout: 5))
+
+        app.buttons["closeColorCodeButton"].tap()
+        XCTAssertFalse(app.buttons["closeColorCodeButton"].waitForExistence(timeout: 2))
+    }
+
+    // カラーコード表に全12色が並んでいる
+    func testColorCodeTableListsEveryColor() throws {
+        XCTAssertTrue(app.buttons["openColorCodeButton"].waitForExistence(timeout: 10))
+        app.buttons["openColorCodeButton"].tap()
+        XCTAssertTrue(app.buttons["closeColorCodeButton"].waitForExistence(timeout: 5))
+
+        let colors = ["黒", "茶", "赤", "橙", "黄", "緑", "青", "紫", "灰", "白", "金", "銀"]
+        for color in colors {
+            let row = app.descendants(matching: .any)
+                .matching(identifier: "colorCodeRow_\(color)")
+                .firstMatch
+            XCTAssertTrue(row.exists, "\(color) の行が無い")
+        }
+    }
+
     // 4本目のバンド（誤差）を紫から金に変えると誤差表示が 0.1 % -> 5 % になる
     func testChangingToleranceBandUpdatesErrorValue() throws {
         XCTAssertTrue(app.staticTexts["resistanceErrorText"].waitForExistence(timeout: 10))
