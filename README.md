@@ -75,7 +75,7 @@ iOS 17.0 以上 / iPhone
 
 ## ランディングページ
 
-<https://takoikatakotako.github.io/resistance-calculator-ios/>
+<https://takoikatakotako.github.io/resistance-calculator/>
 
 `lp/` 配下の静的 HTML です。ビルド不要で、ブラウザで直接開けます。
 
