@@ -84,6 +84,16 @@ App Store Connect が求める「同一バージョン内で単調増加」を�
 
 iOS 17.0 以上 / iPhone
 
+## リリース
+
+1. `ios/project.yml` の `MARKETING_VERSION` を更新する
+2. `CHANGELOG.md` に変更内容を追記する
+3. `ios/ReleaseNotes/<バージョン>.txt` に App Store 用の文面を用意する
+4. `cd ios && ./Scripts/generate.sh` でプロジェクトを生成する
+5. Xcode で `Production` スキームを選び、Archive して App Store Connect へアップロードする
+
+ビルド番号は生成スクリプトが git のコミット数から自動採番するため、手で更新する必要はありません。
+
 ## ランディングページ
 
 <https://takoikatakotako.github.io/resistance-calculator/>
