@@ -1,0 +1,4 @@
+included:
+  - ResistanceCalculator
+  - ResistanceCalculatorTests
+  - ResistanceCalculatorUITests

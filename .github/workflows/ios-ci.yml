@@ -1,0 +1,87 @@
+name: iOS CI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'ios/**'
+      - '.github/workflows/ios-ci.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'ios/**'
+      - '.github/workflows/ios-ci.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: ios
+
+jobs:
+  build:
+    runs-on: macos-15
+    env:
+      MINT_PATH: ${{ github.workspace }}/mint/lib
+      MINT_LINK_PATH: ${{ github.workspace }}/mint/bin
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # 特定の Xcode に固定せず、ランナー上の最新安定版を使う
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      # mint bootstrap はソースビルドで10分近くかかるのでキャッシュする
+      # cache アクションは working-directory の影響を受けないのでルート基準で書く
+      - name: Cache Mint packages
+        uses: actions/cache@v4
+        with:
+          path: mint
+          key: ${{ runner.os }}-mint-${{ hashFiles('ios/Mintfile') }}
+          restore-keys: |
+            ${{ runner.os }}-mint-
+
+      - name: Install Mint
+        run: brew install mint
+
+      - name: Install Mint packages
+        run: mint bootstrap
+
+      - name: Lint
+        run: mint run swiftlint lint --strict
+
+      - name: Generate Xcode project
+        run: mint run xcodegen generate
+
+      # シミュレータ名はランナーイメージ更新で変わるので動的に選ぶ
+      - name: Select simulator
+        id: simulator
+        run: |
+          UDID=$(xcrun simctl list devices available --json \
+            | jq -r '[.devices | to_entries[] | select(.key | test("iOS"))]
+                     | sort_by(.key) | last.value
+                     | map(select(.name | startswith("iPhone"))) | last.udid')
+          if [ -z "$UDID" ] || [ "$UDID" = "null" ]; then
+            echo "::error::No available iPhone simulator found"
+            xcrun simctl list devices available
+            exit 1
+          fi
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl list devices available | grep "$UDID"
+
+      - name: Run tests
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project ResistanceCalculator.xcodeproj \
+            -scheme Local \
+            -destination "id=${{ steps.simulator.outputs.udid }}" \
+            CODE_SIGNING_ALLOWED=NO
