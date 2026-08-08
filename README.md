@@ -75,6 +75,8 @@ iOS 17.0 以上 / iPhone
 
 ## ランディングページ
 
+<https://takoikatakotako.github.io/resistance-calculator-ios/>
+
 `lp/` 配下の静的 HTML です。ビルド不要で、ブラウザで直接開けます。
 
 ```sh
@@ -86,3 +88,6 @@ open lp/index.html
 | `index.html` | トップページ |
 | `privacy.html` | プライバシーポリシー |
 | `terms.html` | 利用規約 |
+
+`main` の `lp/` に変更が入ると GitHub Actions が自動でデプロイします
+（`.github/workflows/lp-deploy.yml`）。手動実行も可能です。

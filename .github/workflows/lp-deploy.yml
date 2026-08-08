@@ -1,0 +1,41 @@
+name: Deploy LP
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'lp/**'
+      - '.github/workflows/lp-deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Pages のデプロイは同時実行させない。進行中のものは待たせる
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # lp/ は素の静的 HTML なのでビルド不要。そのまま成果物にする
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./lp
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
