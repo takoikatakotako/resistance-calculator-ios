@@ -26,7 +26,7 @@ CLI ツールは Mint（`ios/Mintfile`）で管理しています。
 brew install mint
 cd ios
 mint bootstrap          # 初回はソースビルドのため10分程度かかります
-mint run xcodegen generate
+./Scripts/generate.sh   # Xcode プロジェクトを生成
 open ResistanceCalculator.xcodeproj
 ```
 
@@ -61,6 +61,17 @@ xcodebuild build \
   -configuration Debug \
   CODE_SIGNING_ALLOWED=NO
 ```
+
+### バージョン
+
+`MARKETING_VERSION`（例: 4.0.0）は `ios/project.yml` で管理しています。
+
+ビルド番号は `Scripts/generate.sh` が git のコミット数から自動採番するため、
+手で更新する必要はありません。コミットのたびに増えるので、
+App Store Connect が求める「同一バージョン内で単調増加」を満たします。
+
+プロジェクトを生成せずに `mint run xcodegen generate` を直接実行すると
+ビルド番号が展開されないため、必ず `Scripts/generate.sh` を使ってください。
 
 ### スキーム
 
