@@ -29,6 +29,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # ビルド番号を git のコミット数から算出するため全履歴が要る
+          fetch-depth: 0
 
       # 特定の Xcode に固定せず、ランナー上の最新安定版を使う
       - name: Select Xcode
@@ -59,7 +62,7 @@ jobs:
         run: mint run swiftlint lint --strict
 
       - name: Generate Xcode project
-        run: mint run xcodegen generate
+        run: ./Scripts/generate.sh
 
       # シミュレータ名はランナーイメージ更新で変わるので動的に選ぶ
       - name: Select simulator
